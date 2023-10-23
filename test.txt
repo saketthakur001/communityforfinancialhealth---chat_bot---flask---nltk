@@ -1,0 +1,1098 @@
+//-1. What is your age?
+
+
+//-2. Mention your gender
+
+
+
+A.  Male
+
+
+
+B.  Female
+
+
+
+C.  Other
+
+
+
+
+
+
+//-3. Which country do you live in?
+
+
+
+
+Please Select
+India
+Albania
+Algeria
+American Samoa
+Andorra
+Angola
+Anguilla
+Antarctica
+Antigua and Barbuda
+Argentina
+Armenia
+Aruba
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Belize
+Benin
+Bermuda
+Bhutan
+Bolivia
+Bosnia and Herzegovina
+Botswana
+Bouvet Island
+Brazil
+British Indian Ocean Territory
+Brunei Darussalam
+Bulgaria
+Burkina Faso
+Burundi
+Cambodia
+Cameroon
+Canada
+Cape Verde
+Cayman Islands
+Central African Republic
+Chad
+Chile
+China
+Christmas Island
+Cocos (Keeling) Islands
+Colombia
+Comoros
+Congo
+Cook Islands
+Costa Rica
+Croatia (Hrvatska)
+Cuba
+Cyprus
+Czech Republic
+Denmark
+Djibouti
+Dominica
+Dominican Republic
+East Timor
+Ecuador
+Egypt
+El Salvador
+Equatorial Guinea
+Eritrea
+Estonia
+Ethiopia
+Falkland Islands (Malvinas)
+Faroe Islands
+Fiji
+Finland
+France
+France, Metropolitan
+French Guiana
+French Polynesia
+French Southern Territories
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Gibraltar
+Guernsey
+Greece
+Greenland
+Grenada
+Guadeloupe
+Guam
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hong Kong
+Hungary
+Iceland
+Afghanistan
+Indonesia
+Iran (Islamic Republic of)
+Iraq
+Ireland
+Israel
+Italy
+Jersey
+Jamaica
+Japan
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Korea
+Kosovo
+Kuwait
+Kyrgyzstan
+Lao People's Democratic Republic
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libyan Arab Jamahiriya
+Liechtenstein
+Lithuania
+Luxembourg
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Marshall Islands
+Mauritania
+Mauritius
+Mexico
+Micronesia, Federated States of
+Moldova, Republic of
+Monaco
+Mongolia
+Montenegro
+Morocco
+Mozambique
+Myanmar
+Namibia
+Nauru
+Nepal
+Netherlands
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Norway
+Oman
+Pakistan
+Palau
+Palestine
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Qatar
+Romania
+Russia
+Rwanda
+Saint Kitts and Nevis
+Saint Lucia
+Saint Vincent and the Grenadines
+Samoa
+San Marino
+Sao Tome and Principe
+Saudi Arabia
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+South Sudan
+Spain
+Sri Lanka
+Sudan
+Suriname
+Sweden
+Switzerland
+Syrian Arab Republic
+Taiwan
+Tajikistan
+Tanzania, United Republic of
+Thailand
+Togo
+Tonga
+Trinidad and Tobago
+Tunisia
+Turkey
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+UAE
+UK
+USA
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican City State
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe
+
+
+
+
+
+
+
+//-4. What state or union territory do you live in?
+
+
+
+
+
+Please Select
+Andhra Pradesh
+Arunachal Pradesh
+Assam
+Bihar
+Chhattisgarh
+Goa
+Gujarat
+Haryana
+Himachal Pradesh
+Jharkhand
+Karnataka
+Kerala
+Madhya Pradesh
+Maharashtra
+Manipur
+Meghalaya
+Mizoram
+Nagaland
+Odisha
+Punjab
+Rajasthan
+Sikkim
+Tamil Nadu
+Telangana
+Tripura
+Uttar Pradesh
+Uttarakhand
+West Bengal
+Andaman and Nicobar Islands
+Chandigarh
+Dadra and Nagar Haveli and Daman and Diu
+Delhi
+Jammu and Kashmir
+Ladakh
+Lakshadweep
+Puducherry
+
+
+
+
+
+
+
+//-5. Which of the following best describes the place where you live now?
+
+
+
+Please Select
+A large city
+A suburb near a large city
+A small city or town
+A rural or remote community
+Prefer not to say
+
+
+
+
+
+
+
+
+//-6. What is the highest degree or level of education you have completed?
+
+
+
+Please Select
+Not Literate
+Vocational Training
+Literate without formal education
+Primary Education
+High School
+Undergraduate
+Graduate and above
+
+
+
+
+
+
+
+//-7. Please select which option best describes your current occupational status
+
+
+
+Please Select
+Employed
+Self Employed
+Unemployed
+Retired
+Student
+Others Specify
+
+
+
+
+
+
+
+//-8. Which sector describes your current largest scope of work?
+
+
+
+Please Select
+Technology/IT
+Finance/Accounting/Banking
+Healthcare/Medical
+Education
+Real Estate
+Retail/E-Commerce
+Hospitality/Tourism
+Manufacturing/Enginnering y
+                  Govenment/Public Sector y
+                  Media/Entertainment y
+                  Professional Services y
+                  Non-Profit/Charity y
+                  Agriculture
+Food production
+Transportation/Logistics
+Multiple
+Other
+
+
+
+
+
+
+//-9. Please mention your current marital status
+
+
+
+Please Select
+Married
+Divorced
+Unmarried
+Separated
+Widower/widow
+
+
+
+
+
+
+//-10. Mention the number of children you have
+
+
+
+Please Select
+None
+1
+2
+3
+4
+5 or more
+Prefer not to say
+
+
+
+
+
+
+//-11. Excluding you, how many members are there in the household? (Please count any partner, children, family, relatives, roommates etc.- all members staying under one roof and sharing food from the same kitchen)
+
+
+
+Please Select
+0
+1
+2
+3
+4
+5
+6 or more
+
+
+
+
+
+
+//-12. How long have you been working?
+
+
+
+Please Select
+Less than 6 months
+6 months-1 year
+1-5 year
+5-10 year
+More than 10 year
+
+
+
+
+
+
+//-13. What is the nature of your current job?
+
+
+
+A.  Full Time
+
+
+
+B.  Part Time
+
+
+
+
+
+//-14. What frequency do you generate income from your occupation/s?
+
+
+
+Please Select
+Daily
+Weekly
+Once in 15 days
+Monthly
+Once in 3 months
+Annually
+
+
+
+
+
+
+
+//-15. What is your average monthly income? (Please enter your individual income and not the household income)
+
+
+
+Please Select
+Less than 10000 INR
+11,000 - 20,000 INR
+21,000 - 30,000 INR
+31,000 - 40,000 INR
+41,000 - 50,000 INR
+51,000 - 60,000 INR
+61,000 - 70,000 INR
+71,000 - 80,000 INR
+81,000 - 90,000 INR
+91,000 - 100,000 INR
+More than 100000 INR 
+
+
+
+
+
+
+//-16. Do you have a secondary/additional source of income?
+
+
+
+Please Select
+Yes, through investments or rental property
+Occasionally, through freelance or part-time work
+Yes, through a side business or online venture
+Yes, through a part-time job
+Yes, through gig-based platforms like ride-sharing, food delivery, or task services.
+Others
+No, I don’t have any secondary source of Income
+Prefer not to answer
+
+
+
+
+
+
+//-17. Are you the only earning member in your household?
+
+
+
+Please Select
+Yes
+No
+Prefer not to say
+
+
+
+
+
+
+
+
+
+
+
+
+The assessment will now ask you about different saving habits you follow in your life.
+
+
+Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+The assessment will now ask you about different saving habits you follow in your life. Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+
+
+//-18. In the past 12 months how often were you able to save a part of your income?
+
+
+
+Daily
+
+
+
+Weekly
+
+
+
+Monthly
+
+
+
+Bi annually
+
+
+
+Annually
+
+
+
+Not able to save at all
+
+
+
+
+
+
+//-19. In the past 12 months how much of your total income were you able to save?
+
+
+
+Much more than half my income
+
+
+
+Little more than half my income
+
+
+
+About half of my income
+
+
+
+Little less than half my income
+
+
+
+Much less than half my income
+
+
+
+Not able to save at all
+
+
+
+
+
+
+//-20. Which of the following statements best describes your total savings compared to your total spending in the past 12 months?
+
+
+
+Saving was much more than spending
+
+
+
+Saving was a little more than spending
+
+
+
+Saving was about equal to spending
+
+
+
+Saving was little less than spending
+
+
+
+Saving was much less than spending
+
+
+
+No savings at all
+
+
+
+
+
+
+
+
+
+
+
+The assessment will now ask you about different spending habits you follow in your life.
+
+
+Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+The assessment will now ask you about different Spending habits you follow in your life. Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+
+
+//-21. Which of the following statements best describes your total spending compared to your total income in the past 12 months?
+
+
+
+Spending was much less than income
+
+
+
+Spending was a little less than income
+
+
+
+Spending about equal to income
+
+
+
+Spending was little more than income
+
+
+
+Spending was much more than income
+
+
+
+
+
+
+//-22. Which of the following statements best describes how you were able to pay your bills (rent, utilities, education, etc) over the last 12 months? (In case you live with your family, please choose the appropriate scenario for your household)
+
+
+
+Paid all bills on time
+
+
+
+Paid most of our bills on time
+
+
+
+Paid some of our bills on time
+
+
+
+Paid very few bills on time
+
+
+
+Barely paid any bill on time
+
+
+
+
+
+
+//-23. Which of the following statements describe your expenditure pattern in purchasing essential (for example food, groceries, education, medicine etc.) and non-essential commodities (for example, entertainment, luxury items etc.)?
+
+
+
+Expenditure on essential goods is much higher than that on non-essential goods
+
+
+
+Expenditure on essential goods is slightly higher than that on non-essential goods
+
+
+
+Expenditure on essential goods is equal to that on non-essential goods
+
+
+
+Expenditure on essential goods is slightly lower than that on non-essential goods
+
+
+
+Expenditure on essential goods is much lower than that on non-essential goods
+
+
+
+
+
+
+
+
+
+
+
+The assessment will now ask you about different Borrowing habits you follow in your life.
+
+
+Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+The assessment will now ask you about different Borrowing habits you follow in your life Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+
+
+//-24. How easy or difficult is it for you to get a loan from a formal financial institution?
+
+
+
+Very Easy
+
+
+
+Moderately Easy
+
+
+
+Indifferent (neither easy nor difficult)
+
+
+
+Moderately Difficult
+
+
+
+Very Difficult
+
+
+
+
+
+
+//-25. In the past 12 months how frequently did you have to borrow money from a financial institution or family?
+
+
+
+Once a year
+
+
+
+Once in 6 months
+
+
+
+Once in 3 months
+
+
+
+Every month
+
+
+
+Never
+
+
+
+
+
+
+//-26. Considering the amount borrowed over the last 12 months, how frequently could you repay the EMIs?
+
+
+
+Paid all EMIs on time
+
+
+
+Paid most EMIs on time
+
+
+
+Paid some EMIs on time
+
+
+
+Barely paid any EMIs on time
+
+
+
+Never had to pay EMI since I never borrowed money
+
+
+
+
+
+
+
+
+
+
+
+The assessment will now ask you about different Resilience habits you follow in your life.
+
+
+Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+The assessment will now ask you about different Resilience habits you follow in your life Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+
+
+//-27. If you lose employment, how many days can you sustain with the money you have saved?
+
+
+
+More than a year
+
+
+
+6 months - 1 year
+
+
+
+2-6 months
+
+
+
+One month
+
+
+
+Less than a week
+
+
+
+
+
+
+//-28. How easy or difficult will it be for you to raise money in case of an emergency?
+
+
+
+Very Easy
+
+
+
+Moderately Easy
+
+
+
+Somewhat Easy
+
+
+
+Moderately Difficult
+
+
+
+Very Difficult
+
+
+
+
+
+
+//-29. How frequently have you invested in insurance policies or long term saving schemes in the past 12 months (all kinds of insurance like - health and non-health/ life and non-life)?
+
+
+
+Once a year
+
+
+
+Once in 6 months
+
+
+
+Once in 3 months
+
+
+
+Every month
+
+
+
+Never
+
+
+
+
+//-30. Which of the following best describes your current approach to budgeting?
+
+
+
+I have a formal budget that’s documented (e.g. spreadsheet, book or online tool) that calculates my outgoing expenses and the amount of money I need to allocate each week or month
+
+
+
+I have a ‘mental’ budget – no documentation or spreadsheets, but I still keep track of my finances and spending
+
+
+
+I keep a mental budget but do not track of all my finances and spending, only the major expenses
+
+
+
+I don't work a budget at all and spend what I can afford at that time
+
+
+
+
+
+
+//-31. Which of the following statements best describes you in relation to your finances?
+
+
+
+I am actively planning for my financial future
+
+
+
+I'm primarily focused on my finances today and have started taking active steps towards planning my future finances
+
+
+
+I’m starting to think about planning for my financial future but have not yet taken active steps towards this
+
+
+
+I’m primarily focused on my finances today and haven’t put much thought into planning for my financial future
+
+
+
+I have not put any thought into my planning for my financial future
+
+
+
+
+
+
+//-32. In the past 12 months how often have you invested to achieve a short term financial goal (FDs, RDs, mutual funds, stocks, etc.)?
+
+
+
+Very Often
+
+
+
+Often
+
+
+
+Sometimes
+
+
+
+Not Often
+
+
+
+Never
+
+
+
+
+
+
+
+
+
+
+
+The assessment will now ask you about different Decision making habits you follow in your life.
+
+
+Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+The assessment will now ask you about different Decision making habits you follow in your life Please respond to all questions and answer honestly in order to get an accurate assessment.
+
+
+
+//-33. What best describes your financial decision making ability?
+
+
+
+I don't consult others, I am fully confident to take decisions instantly
+
+
+
+I don't consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing
+
+
+
+I make my financial decisions, but in consultation with others
+
+
+
+I always need to consult others for guidance
+
+
+
+I don't make financial decisions (someone else makes the decision)
+
+
+
+
+
+
+//-34. While deciding on investing in an instrument (Mutual funds/FD/RD), which of the statements would best describe you?
+
+
+
+I am fully aware of these instruments and make all decisions independently
+
+
+
+I consult with a financial expert before making any decisions regarding investing in these instruments
+
+
+
+I make decisions regarding investing in these instruments in consultation with friends and family
+
+
+
+I don't make these decisions. I rely on financial experts to make these decisions for me
+
+
+
+I don't make these decisions. I rely on friends and family to make these decisions for me
+
+
+
+
+
+
+//-35. While deciding on investing in an asset (house/land), which of the statements would best describe you?
+
+
+
+I am fully aware of these assets and make all decisions independently
+
+
+
+I consult with a financial expert before making any decisions regarding investing in these assets
+
+
+
+I make decisions regarding investing in these assets in consultation with friends and family
+
+
+
+I don't make these decisions. I rely on financial experts to make these decisions for me
+
+
+
+I don't make these decisions. I rely on friends and family to make these decisions for me
+
+

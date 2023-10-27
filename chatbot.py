@@ -52,14 +52,18 @@ def survey_time():
             for option_name in options_:
                 row = 0
                 for name in option_name:
-                    similarity_score.append(compare(lamatized_user_input, lemmatize(name)))
+                    prob = compare(lamatized_user_input, lemmatize(name))
+                    similarity_score.append(prob)
+                    print(prob, name, lamatized_user_input)
                     row += 1
                 column += 1
                 # print(row)
-            print(column)
-        print(max(similarity_score), 'this is the max')
+            # print(column)
+        # print(max(similarity_score), 'this is the max')
         index = similarity_score.index(max(similarity_score))
-        print("you have selected",questions[1][index])
+        index = math.ceil((index+1)/9)
+        print(index)
+        print("you have selected",questions[1][index-1])
     # print(similarity_score)
 
 

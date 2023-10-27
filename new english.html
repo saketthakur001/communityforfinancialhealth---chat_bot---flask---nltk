@@ -1,0 +1,1004 @@
+@include('frontend.include.header')
+<style>
+   .activeblue{
+      color:#1435A2 !important;
+   }
+   ol{
+      list-style: none;
+   }
+   .active{
+      color: #ffc107 !important;
+   }
+   .sidebar {
+   position: sticky;
+   top: 100px;
+   padding: 20px;
+   color: #000000;
+   background: #FFFFFF;
+   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+   transition: right 0.3s ease-in-out; /* Smooth slide-in/out transition */
+   }
+   .sidebar.active {
+   right: 0; /* Display sidebar */
+   }
+   .bottom-buttons {
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+   }
+   .options {
+      display: none;
+      padding: 5px 0 0 15px;
+   }
+   .content {
+   margin-bottom: 40px;
+   }
+   .container-fluid {
+   margin: 0;
+   padding: 0;
+   }
+   .sidebar a {
+   color: #000000a6;
+   text-decoration: none;
+   }
+   .custom-input {
+   border-radius: 10px;
+   background: #FFFFFF;
+   box-shadow: 2px 2px 5px 0px #00000026;
+   padding: 20px;
+   }
+   .custom-input label {
+   font-weight: 500;
+   color: #000000a6;
+   }
+   /* Add toggle button styles */
+   .toggle-button {
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   z-index: 9999;
+   width: 2%; 
+   }
+   .errorshow {
+   margin-top: 8px;
+   display: none;
+   font-size: 14px;
+   font-weight: 500;
+   }
+   .form-select:focus {
+   border-color: #000;
+   box-shadow: none;
+   }
+   .sidebarCollapse {
+   width: 100% ;
+   }
+   .sidebar ul.list-unstyled li a.page-link{
+   position: relative;
+   font-weight: 500;
+   }
+   .sidebar-part ul ol li a {
+   font-size: 16px;
+   font-weight: 500;
+   }
+   .sidebar-part li {
+   margin-bottom: 5px;
+   color: #000000a6;
+   font-size: 16px;
+   font-weight: 500;
+   }
+   .sidebar ul.list-unstyled li a.page-link:hover {
+   }
+   .sidebar-part li a:hover {
+   color: #ffc107;
+   }
+   @media only screen and (min-width:768px) {
+   .sidebar {
+   right: 0;
+   }
+   .custom-input{
+   margin-right: auto;
+   }
+   }
+   @media only screen and (max-width:480px) {
+   .sidebarCollapse {
+   width: 20% !important;
+   }
+   }
+</style>
+<div class="container py-5 mt-5">
+   <div class="row">
+      <!-- Toggle button for sidebar -->
+      <button type="button" id="sidebarCollapse" class="sidebarCollapse d-none">
+      <span class="sr-only">Toggle Menu</span>
+      </button>
+      <!-- Main content -->
+      <div class="col-md-9">
+         <form action="https://accessassist.in/" id="survey_english_form">
+             <!-- Page 1 questions -->
+            <!-- about questions -->
+            <div class="col-12 content d-block" id="about-questions">
+               <h5>About Questions</h5>
+               <div class="mb-3 custom-input">
+                  <label for="" class="form-label">1. What is your age?</label>
+                  <input type="text" class="form-control" id="age" name="age" maxlength="2" id="" placeholder="Enter Your Age" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')" required>
+                  <div id="ageError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">2. Mention Your Gender</label>
+                  <select class="form-select" name="gender" aria-label="Default select example" required>
+                     <option value="">Please Select</option>
+                     <option value="1">Male</option>
+                     <option value="2">Female</option>
+                     <option value="3">Other</option>
+                  </select>
+                  <div id="genderError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <!-- <button onclick="validateAboutQuestions()">Next</button> -->
+            </div>
+            <!-- saving questions -->
+            <div class="col-12 content" id="saving" style="display: none;">
+               <h5>Saving</h5>
+                  <div class="mt-3 mb-3 custom-input">
+                     <label for="" class="form-label">3. In the past 12 months how often were you able to save part of your income?</label>
+                     <select class="form-select" name="country" aria-label="Default select example" required>
+                        <option value="">Please Select</option>
+                        <option value="1">Daily</option>
+                        <option value="2":80>Weekly</option>
+                        <option value="3":60>Monthly</option>
+                        <option value="4">Bi-Annually</option>
+                        <option value="5":20>Annually</option>
+                        <option value="6">Not able to save at all</option>
+                     </select>
+                     <div id="countryError" class="errorshow" style="color: red;">This Field Is Required</div>
+                  </div>
+                  <div class="mt-3 mb-3 custom-input">
+                     <label for="" class="form-label">4. In the past 12 months how much of your total income were you able to save?</label>
+                     <select class="form-select" name="region" aria-label="Default select example" required>
+                        <option value="">Please Select</option>
+                        <option value="1">Much more than half my income</option>
+                        <option value="2":80>Little more than half my income</option>
+                        <option value="3":60>About half of my income</option>
+                        <option value="4":40>Little less than half my income</option>
+                        <option value="5":20>Much less than half my income</option>
+                        <option value="6">Not all to save at all</option>
+                     </select>
+                     <div id="regionError" class="errorshow" style="color: red;">This Field Is Required</div>
+                  </div>
+                  <div class="mt-3 mb-3 custom-input">
+                     <label for="" class="form-label">5. Which of the following statements best describes your total savings compared to your total spending in the past 12 months?</label>
+                     <select class="form-select" name="state" aria-label="Default select example" required>
+                        <option value="">Please Select</option>
+                        <option value="1">Saving was much more than spending</option>
+                        <option value="2":80>Saving was a little more than spending</option>
+                        <option value="3":60>Saving was about equal to spending</option>
+                        <option value="4":40>Saving was a little less than spending</option>
+                        <option value="5":20>Saving was much less than spending</option>
+                        <option value="6">No saving at all</option>
+                     </select>
+                     <div id="stateError" class="errorshow" style="color: red;">This Field Is Required</div>
+                  </div>
+            </div>
+         <!-- page-2 questions -->
+         <!-- Spending Questions -->
+         <div class="col-12 content" id="spending" style="display: none;">
+            <h5>Spending</h5>
+         
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">6. Which of the following statements best describes your total spending compared to your total income in the past 12 months?</label>
+                  <select class="form-select" name="place" aria-label="Default select example" required>
+                     <option value="">Please Select</option>
+                     <option value="1">Spending was much less than income</option>
+                     <option value="2">Spending was a little less than income</option>
+                     <option value="3">Spending was little more than income</option>
+                     <option value="4">Spending was much more than income</option>
+                     <option value="5">Spending about equal to income</option>
+                  </select>
+                  <div id="placeError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">7. Which of the following statements best describes how you were able to pay your bills (rent, utilities, education, etc) over the last 12 months?</label>
+                  <select class="form-select" name="education" aria-label="Default select example"required>
+                     <option value="">Please Select</option>
+                     <option value="1">Paid all bills on time</option>
+                     <option value="2">Paid most of our bills on time</option>
+                     <option value="3">Paid some of our bills on time</option>
+                     <option value="4">Paid very few bills on time</option>
+                     <option value="5">Barely paid any bill on time</option>
+                  </select>
+                  <div id="educationError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">8. Which of the following statements describe your expenditure pattern in purchasing essential and non-essential commodities?</label>
+                  <select class="form-select" name="occupation" aria-label="Default select example"required>
+                     <option value="">Please Select</option>
+                     <option value="1">Expenditure on essential goods is much higher than that on non-essential goods</option>
+                     <option value="2">Expenditure on essential goods is slightly higher than that on non-essential good</option>
+                     <option value="3">Expenditure on essential goods is equal to that on non-essential goods</option>
+                     <option value="4">Expenditure on essential goods is slightly lower than that on non-essential goods</option>
+                     <option value="5">Expenditure on essential goods is much lower than that on non-essential goods</option>
+                  </select>
+                  <div id="occupationError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+         </div>
+         <!-- Borrowing Questions-->
+         <div class="col-12 content" id="borrowing" style="display: none;">
+            <h5>Borrowing</h5>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">9. How easy or difficult is it for you to raise a loan from a formal financial institution?</label>
+               <select class="form-select" name="children" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">Very Easy</option>
+                  <option value="2">Moderately Easy</option>
+                  <option value="3">Neutral</option>
+                  <option value="4">Moderately Difficult</option>
+                  <option value="5">Very Difficult</option>
+               </select>
+               <div id="childrenError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">10. In the past 12 months how frequently did you have to borrow money from a financial institution or family?</label>
+               <select class="form-select" name="Financial-institutions" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">once a year</option>
+                  <option value="2">Once in 6 months</option>
+                  <option value="3">Once in 3 months</option>
+                  <option value="4">Every month</option>
+                  <option value="5">Never</option>
+               </select>
+               <div id="Financial-institutionsError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">11. Considering the amount bororwed over the last 12 months, how frequently could you repay the EMIs?</label>
+               <select class="form-select" name="borrowed" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">Paid all EMIs on time</option>
+                  <option value="2">Paid most EMIs on time</option>
+                  <option value="3">Paid some EMIs on time</option>
+                  <option value="4">Barely paid any EMIs on time</option>
+                  <option value="5">Never had to pay EMI since I never borrowed money</option>
+               </select>
+               <div id="borrowedError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+         </div>
+         <!-- page 3 questions -->
+         <!-- Resilience Questions -->
+         <div class="col-12 content" id="resilience" style="display: none;">
+            <h5>Resilience</h5>
+          
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">12. If you lose employment, how many days can you sustain with the money you have saved?</label>
+                  <select class="form-select" name="lose-employment" aria-label="Default select example"required>
+                     <option value="">Please Select</option>
+                     <option value="1">More than a year</option>
+                     <option value="2">6 months - 1 year</option>
+                     <option value="3">2-6 months</option>
+                     <option value="4">One month</option>
+                     <option value="5">Less than a week</option>
+                  </select>
+                  <div id="lose-employmentError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">13. How easy or difficult will it be for you to raise money in case of an emergency?</label>
+                  <select class="form-select" name="raise-money" aria-label="Default select example"required>
+                     <option value="">Please Select</option>
+                     <option value="1">Very Easy</option>
+                     <option value="2">Moderately Easy</option>
+                     <option value="3">Neutral</option>
+                     <option value="4">Moderately Difficult</option>
+                     <option value="5">Very Difficult</option>
+                  </select>
+                  <div id="raise-moneyError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">14. How frequently have you invested in insurance policies or long-term saving schemes in the past 12 months (all kinds of insurance like- health and non-health/life and non-life)?</label>
+                  <select class="form-select" name="insurance-polices" aria-label="Default select example"required>
+                     <option value="">Please Select</option>
+                     <option value="1">Once a year</option>
+                     <option value="2">Once in 6 months</option>
+                     <option value="3">Once in 3 months</option>
+                     <option value="4">Every month</option>
+                     <option value="5">Never</option>
+                  </select>
+                  <div id="insurance-policesError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+         </div>
+         <!-- Decision making questions -->
+         <div class="col-12 content" id="decision-making" style="display: none;">
+            <h5>Decision-Making</h5>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">15.What best describes your financial decision-making ability?</label>
+               <select class="form-select" name="decision-making" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">I don't consult others, I am fully confident to take decisions instantly">I don't consult others, I am fully confident to take decisions instantly</option>
+                  <option value="2">I don't consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing"><br>
+                     I don’t consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing 
+                  </option>
+                  <option value="3">I make my financial decisions, but in consultation with others">I make my financial decisions, but in consultation with others</option>
+                  <option value="4">I always need to consult others for guidance">I always need to consult others for guidance</option>
+                  <option value="5">I don't make financial decisions (someone else makes the decision)</option>
+               </select>
+               <div id="decision-makingError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">16.While deciding on investing in an asset (house/land), which of the statements best describe you?</label>
+               <select class="form-select" name="investment" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">I am fully aware of these assets and make all decisions independently">I am fully aware of these assets and make all decisions independently</option>
+                  <option value="2">I consult with a financial expert before making any decisions regarding investing in these assets">
+                     I consult with a financial expert before making any decisions regarding investing in these assets 
+                  </option>
+                  <option value="3">I make decisions regarding investing in these assets in consultation with friends and family</option>
+                  <option value="4">I don't make these decisions. I rely on financial experts to make these decisions for me</option>
+                  <option value="5">I don't make these decisions. I rely on friends and family to make these decisions for me">
+                     I don't make these decisions. I rely on friends and family to make these decisions for me
+                  </option>
+               </select>
+               <div id="investmentError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">17.While deciding on investment in an instrument(mutal funs/FD/RD), which of the statements would best describe you?</label>
+               <select class="form-select" name="decisioninvestment" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">I am fully aware of these instruments and make all decisions independently</option>
+                  <option value="2">I consult with a financial expert before making any decisions regarding investing in these instruments </option>
+                  <option value="3">I make decisions regarding investing in these instruments in consultation with friends and family</option>
+                  <option value="4">I don't make these decisions. I rely on financial experts to make these decisions to make these decision independently</option>
+                  <option value="5">I don't make these decisions. I rely on friends and family to make these decisions for me</option>
+               </select>
+               <div id="decisioninvestmentError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+         </div>
+         <!-- planning Questions -->
+         <div class="col-12 content" id="planning" style="display: none;">
+            <h5>Planning</h5>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">18. Which of the following best describes your current approach to budgeting?</label>
+               <select class="form-select" name="current-approach" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">I have a formal budget that's documented (e.g. spreadsheet, book or online tool) that calculates my outgoing expenses and the amount of money I need to allocate each week or month</option>
+                  <option value="2">I have a ‘mental’ budget – no documentation or spreadsheets, but I still keep track of my finances and spending</option>
+                  <option value="3">I keep a mental budget but do not track of all my finances and spending, only the major expenses</option>
+                  <option value="4">I don't work a budget at all and spend what I can afford at that time I don't work to a budget at all</option>
+               </select>
+               <div id="current-approachError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">19. Which of the following statements best describes you in relation to your finances?</label>
+               <select class="form-select" name="fianance" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">I am actively planning for my financial future</option>
+                  <option value="2">I'm primarily focused on my finances today and have started taking active steps towards planning my future finances</option>
+                  <option value="3">I’m starting to think about planning for my financial future but have not yet taken active steps towards this</option>
+                  <option value="4">I’m primarily focused on my finances today and haven’t put much thought into planning for my financial future</option>
+                  <option value="5">I have put no thought into my planning for my financial future</option>
+               </select>
+               <div id="fiananceError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">20.In the past 12 months how often have invested to achieve a short term financial goal(FDs, RDs,Mutual funds, stocks, etc)</label>
+               <select class="form-select" name="short-term-finance" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">very often</option>
+                  <option value="2">Often</option>
+                  <option value="3">Sometimes</option>
+                  <option value="4">Not Often</option>
+                  <option value="5">Never</option>
+               </select>
+               <div id="short-term-financeError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+         </div>
+         <!-- ---------------------questionnnaier part 1 end------------ -->
+         <!-- Questionnaire Part-2 -->
+         <div class="col-12 content" id="pagequestionsfive" style="display: none;">
+            <h5>Survey Form - Page 5</h5>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">3. Which Country do you live in?*</label>
+                  <select class="form-select" id="countrysurvey" name="countrysurvey" aria-label="Default select example" required>
+                     <option value="">Please Select</option>
+                     <option value="1">India</option>
+                     <option value="2">America</option>
+                     <option value="3">Landon</option>
+                  </select>
+                  <div id="countrysurveyError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+            <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">4. Which Region do you live in?</label>
+                  <select class="form-select" name="regionsurvey" aria-label="Default select example" required>
+                     <option value="">Please Select</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                  </select>
+                  <div id="regionsurveyError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label"> 5. What state or
+                  union territory do you
+                  live in?</label>
+                  <select class="form-select" name="statesurvey" aria-label="Default select example" required>
+                     <option value="">Please Select</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                  </select>
+                  <div id="statesurveyError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+               <div class="mt-3 mb-3 custom-input">
+                  <label for="" class="form-label">6. Which of the
+                  following best describes
+                  the place where you live now?</label>
+                  <select class="form-select" name="largecity" aria-label="Default select example" required>
+                     <option value="">Please Select</option>
+                     <option value="1">A large city</option>
+                     <option value="2">A suburb near a large city</option>
+                     <option value="3">A small city or town</option>
+                     <option value="3">A rural or remote community</option>
+                     <option value="3":0>Prefer not to say</option>
+                  </select>
+                  <div id="largecityError" class="errorshow" style="color: red;">This Field Is Required</div>
+               </div>
+         </div>
+         <div class="col-12 content" id="pagequestionssix" style="display: none;">
+            <h5>Survey Form - Page 6</h5>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">7. What is the
+               highest degree or level of
+               education you have completed?</label>
+               <select class="form-select" name="pageeducation" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Not Literate</option>
+                  <option value="2">Vocational Training</option>
+                  <option value="3">Literate without formal education</option>
+                  <option value="4">Primary Education</option>
+                  <option value="5">High School</option>
+                  <option value="6">Undergraduate</option>
+                  <option value="7">Graduate and above</option>
+               </select>
+               <div id="pageeducationError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">8. Please Select
+               which option best
+               describes your current occupational status</label>
+               <select class="form-select" name="pageoccupation" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Employed</option>
+                  <option value="2">Self Employed</option>
+                  <option value="3">Unemployed</option>
+                  <option value="4">Retired</option>
+                  <option value="5">Student</option>
+                  <option value="6">Others Specify</option>
+               </select>
+               <div id="pageoccupationError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">9. Which sector describes your current
+               largest scope of work?</label>
+               <select class="form-select" name="pagemaritalstatus" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Technology/IT</option>
+                  <option value="2">Finance/Accounting/Banking</option>
+                  <option value="3">Healthcare/Medical</option>
+                  <option value="4">Education</option>
+                  <option value="5">Real Estate</option>
+                  <option value="6">Retail/E-Commerce</option>
+                  <option value="7">Hospitality/Tourism</option>
+                  <option value="8">ManuFacturing/Enginnering</option>
+                  <option value="9">Govenment/Public Sector</option>
+                  <option value="10">Media/Entertainment</option>
+                  <option value="11">Professional Services</option>
+                  <option value="12">Non-Profit/Charity</option>
+                  <option value="13">Agriculture</option>
+                  <option value="14">Food production</option>
+                  <option value="15">Transportation/Logistics</option>
+                  <option value="16">Multiple</option>
+                  <option value="17">Other</option>
+               </select>
+               <div id="pagemaritalstatusError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">10. Please mention your current marital
+               status</label>
+               <select class="form-select" name="maritalchildren" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Married</option>
+                  <option value="2">Divorced</option>
+                  <option value="3">Unmarried</option>
+                  <option value="4">Separated</option>
+                  <option value="5">Widower/widow</option>
+               </select>
+               <div id="maritalchildrenError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            </form>
+         </div>
+         <div class="col-12 content" id="pagequestionsseven" style="display: none;">
+            <h5>Survey Form - Page 7</h5>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">11. Mention the number of children you
+               have</label>
+               <select class="form-select" name="householdmembers" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">None</option>
+                  <option value="2">1</option>
+                  <option value="3">2</option>
+                  <option value="4">3</option>
+                  <option value="5">4</option>
+                  <option value="6">5 or more</option>
+                  <option value="7">Prefer not to say</option>
+               </select>
+               <div id="householdmembersError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">12. Excluding you, how many members are
+               there in the household? (Please count any partner, children,
+               family, relatives, roommates etc.- all members staying under one roof and sharing food
+               from the same kitchen)</label>
+               <select class="form-select" name="workingduration" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">0</option>
+                  <option value="2">1</option>
+                  <option value="3">2</option>
+                  <option value="4">3</option>
+                  <option value="5">4</option>
+                  <option value="6">5</option>
+                  <option value="7">6 or More</option>
+               </select>
+               <div id="workingdurationError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">13. How long have you been
+               working?</label>
+               <select class="form-select" name="jobnature" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Less than 6 months</option>
+                  <option value="2">6 months-1 year</option>
+                  <option value="3">1-5 year</option>
+                  <option value="4">5-10 year</option>
+                  <option value="5">More than 10 year</option>
+               </select>
+               <div id="jobnatureError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">14. What is the nature of your current
+               job?</label>
+               <select class="form-select" name="incomefrequency" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Full Time</option>
+                  <option value="2">Part Time</option>
+               </select>
+               <div id="incomefrequencyError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+         </div>
+         <div class="col-12 content" id="page-questions8" style="display: none;">
+            <h5>Survey Form - Page 8</h5>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">15. What frequency do you generate income
+               from your occupation?</label>
+               <select class="form-select" name="income_range1" aria-label="Default select example"required>
+                  <option value="">Please Select</option>
+                  <option value="1">Daily</option>
+                  <option value="2">Weekly</option>
+                  <option value="3">Once in 15 Days</option>
+                  <option value="4">Monthly</option>
+                  <option value="5">Once in 3 Months</option>
+                  <option value="6">Annually</option>
+               </select>
+               <div id="income_range1Error" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">16. What is your average monthly income?
+               (Please enter your individual income and not the household
+               income)</label>
+               <select class="form-select" name="income_range2" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Less than 10000 INR</option>
+                  <option value="2">11,000 - 20,000 INR</option>
+                  <option value="3">21,000 - 30,000 INR</option>
+                  <option value="4">31,000 - 40,000 INR</option>
+                  <option value="5">41,000 - 50,000 INR</option>
+                  <option value="6">51,000 - 60,000 INR</option>
+                  <option value="7">61,000 - 70,000 INR</option>
+                  <option value="8">71,000 - 80,000 INR</option>
+                  <option value="9">81,000 - 90,000 INR</option>
+                  <option value="10">91,000 - 100,000 INR</option>
+                  <option value="11">More than 100000 INR</option>
+               </select>
+               <div id="income_range2Error" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">17. What is your average monthly income?
+               (Please enter your individual income and not the household
+               income)</label>
+               <select class="form-select" name="secondary_income" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Yes, through investments or rental property</option>
+                  <option value="2">Occasionally, through freelance or part-time work</option>
+                  <option value="3">Yes, through a side business or online venture</option>
+                  <option value="4">Yes, through a part-time</option>
+                  <option value="5">Yes, through gig-based platforms like ride-sharing, food delivery, or
+                     task services.
+                  </option>
+                  <option value="6">Others</option>
+                  <option value="7">No, I don’t have any secondary source of Income</option>
+                  <option value="8">Prefer not to answer</option>
+               </select>
+               <div id="secondary_incomeError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+            <div class="mt-3 mb-3 custom-input">
+               <label for="" class="form-label">18. Are you the Only earning member in your household?* </label>
+               <select class="form-select" name="only_earning_member" aria-label="Default select example" required>
+                  <option value="">Please Select</option>
+                  <option value="1">Yes</option>
+                  <option value="2">No</option>
+                  <option value="3">Prefer Not To Say</option>
+               </select>
+               <div id="only_earning_memberError" class="errorshow" style="color: red;">This Field Is Required</div>
+            </div>
+         </div>
+         </form>
+      </div>
+      <div class="col-md-3 ">
+         <div class="sidebar"  id="sidebar">
+            <div class="sidebar-part">
+               <h5>Questionnaire Part-1</h5>
+               <ul class="list-unstyled">
+                  <li>
+                     <a href="javascript:void(0)"id="pageone"  class="page-link active" data-target="options-1">Page 1</a>
+                     <ol class="options d-block" id="options-1">
+                        <li><a href="javascript:void(0)" class="about-questions-link active" data-target="about-questions">1. About Questions</a></li>
+                        <li><a href="javascript:void(0)" class="saving-link" data-target="saving">2. Saving</a></li>
+                     </ol>
+                  </li>
+                  <li>
+                     <a href="javascript:void(0)" id="pagetwo" class="page-link" data-target="options-2">Page 2</a>
+                     <ol class="options" id="options-2">
+                        <li><a href="javascript:void(0)" class="spending-link" data-target="spending">1. Spending</a></li>
+                        <li><a href="javascript:void(0)" class="borrowing-link" data-target="borrowing">2. Borrowing</a></li>
+                     </ol>
+                  </li>
+                  <li>
+                     <a href="javascript:void(0)"  id="pagethree"  class="page-link" data-target="options-3">Page 3</a>
+                     <ol class="options " id="options-3">
+                        <li><a href="javascript:void(0)" class="resilience-link" data-target="resilience">1. Resilience</a></li>
+                        <li><a href="javascript:void(0)" class="decision-making-link" data-target="decision-making">2. Decision-Making</a></li>
+                     </ol>
+                  </li>
+                  <li>
+                     <a href="javascript:void(0)" id="pagefour" class="page-link" data-target="options-4">Page 4</a>
+                     <ol class="options" id="options-4">
+                        <li><a href="javascript:void(0)" class="planning-link" data-target="planning">1. Planning</a></li>
+                     </ol>
+                  </li>
+               </ul>
+            </div>
+            <div class="sidebar-part">
+               <h5>Questionnaire Part-2</h5>
+               <ul class="list-unstyled">
+                  <li><a href="javascript:void(0)" class="survey-form-link" data-target="pagequestionsfive">Survey-form Page 5</a></li>
+                  <li><a href="javascript:void(0)" class="page-question-link6" data-target="pagequestionssix">Page 6</a></li>
+                  <li><a href="javascript:void(0)" class="page-question-link7" data-target="pagequestionsseven">Page 7</a></li>
+                  <li><a href="javascript:void(0)" class="page-question-link8" data-target="page-questions8">Page 8</a></li>
+               </ul>
+            </div>
+            <!-- ... (Other sidebar content) ... -->
+            <div>
+               <button class="btn btn-blue w-100" id="submit_scoreform">Submit</button>
+            </div>
+            <br>
+            
+         </div>
+      </div>
+   </div>
+</div>
+
+@include('frontend.include.footer')
+<!-- Your JavaScript for toggle functionality -->
+<script>
+   const pageLinks = document.querySelectorAll(".page-link");
+   const optionsList = document.querySelectorAll(".options");
+   const pageTwo = document.querySelectorAll("#pagetwo");
+   const pageThree = document.querySelectorAll("#pagethree");
+   const pageFour = document.querySelectorAll("#pagefour");
+   const aboutQuestionsSection = document.getElementById("about-questions");
+   const aboutQuestionsLinks = document.querySelectorAll(".about-questions-link");
+   const savingSection = document.getElementById("saving");
+   const savingLinks = document.querySelectorAll(".saving-link");
+   const spendingSection = document.getElementById("spending");
+   const spendingLinks = document.querySelectorAll(".spending-link");
+   const borrowingSection = document.getElementById("borrowing");
+   const borrowingLinks = document.querySelectorAll(".borrowing-link");
+   const resilienceSection = document.getElementById("resilience");
+   const resilienceLinks = document.querySelectorAll(".resilience-link");
+   const decisionmakingSection = document.getElementById("decision-making");
+   const decisionmakingLinks = document.querySelectorAll(".decision-making-link");
+   const planningSection = document.getElementById("planning");
+   const planningLinks = document.querySelectorAll(".planning-link");
+   const surveyForm = document.getElementById("pagequestionsfive");
+   const surveyFormLinks = document.querySelectorAll(".survey-form-link");
+   const pageQuestionssix = document.getElementById("pagequestionssix");
+   const pageQuestionLinkssix = document.querySelectorAll(".page-question-link6");
+   const pageQuestionsseven = document.getElementById("pagequestionsseven");
+   const pageQuestionLinksseven = document.querySelectorAll(".page-question-link7");
+   const pageQuestionseight = document.getElementById("page-questions8");
+   const pageQuestionLinkseight = document.querySelectorAll(".page-question-link8");
+   const submitScoreForm = document.querySelectorAll("submit_scoreform");
+
+
+   
+   
+   // pageLinks.forEach((pageLink, index) => {
+   //     pageLink.addEventListener("click", function (event) {
+   //         event.preventDefault();
+   //         optionsList.forEach((options) => {
+   //          options.style.display = "none";
+   //    });
+   
+   //         const targetId = pageLink.getAttribute("data-target");
+   //         const targetOptions = document.getElementById(targetId);
+   //         targetOptions.style.display = "block";
+   //         if (index !== 0) {
+   //             aboutQuestionsSection.style.display = "none";
+   //             savingSection.style.display = "none";
+   //             spendingSection.style.display = "none";
+   //             borrowingSection.style.display = "none";
+   //             resilienceSection.style.display = "none";
+   //             decisionmakingSection.style.display = "none";
+   //             planningSection.style.display = "none";
+   //         }
+   //     });
+   // });
+   pageTwo.forEach((pageTwo) => {
+      pageTwo.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['age','gender','country','region','state']))
+           {
+             return
+           }
+           $("#pagetwo").addClass('active');
+           $("#options-2").addClass('d-block');
+       });
+   });
+   pageThree.forEach((pageThree) => {
+      pageThree.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['place','education','occupation','children','Financial-institutions','borrowed']))
+           {
+             return
+           }
+           $("#pagethree").addClass('active');
+           $("#options-3").addClass('d-block');
+
+       });
+   });
+   pageFour.forEach((pageFour) => {
+      pageFour.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['lose-employment','raise-money','insurance-polices','decision-making','investment','decisioninvestment']))
+           {
+             return
+           }
+           $("#pagefour").addClass('active');
+           $("#options-4").addClass('d-block');
+
+       });
+   });
+   aboutQuestionsLinks.forEach((aboutQuestionsLink) => {
+       aboutQuestionsLink.addEventListener("click", function (event) {
+           event.preventDefault();
+           aboutQuestionsSection.style.display = "block";
+           $(this).addClass('active');
+            // $('.page-link').addClass('active'); 
+
+       });
+   });
+   
+   savingLinks.forEach((savingLink) => {
+       savingLink.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['age','gender']))
+           {
+             return
+           }
+           savingSection.style.display = "block";
+           $(this).addClass('active');
+           
+       });
+   });
+
+
+   
+   
+   spendingLinks.forEach((spendingLinks) => {
+      spendingLinks.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['country','region','state']))
+           {
+             return
+           }
+           spendingSection.style.display = "block";
+           $(this).addClass('active');
+         //   $("#pagetwo").addClass('active');
+   
+   
+   
+       });
+   });
+   borrowingLinks.forEach((borrowingLink) => {
+       borrowingLink.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['place','education','occupation']))
+           {
+             return
+           }
+           borrowingSection.style.display = "block";
+           $(this).addClass('active');
+   
+   
+   
+       });
+   });
+   
+   resilienceLinks.forEach((resilienceLinks) => {
+      resilienceLinks.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['children','Financial-institutions','borrowed']))
+           {
+             return
+           }
+           resilienceSection.style.display = "block";
+           $(this).addClass('active');
+         //   $("#pagethere").addClass('active');
+
+   
+   
+   
+       });
+   });
+   decisionmakingLinks.forEach((decisionmakingLink) => {
+       decisionmakingLink.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['lose-employment','raise-money','insurance-polices']))
+           {
+             return
+           }
+           decisionmakingSection.style.display = "block";
+           $(this).addClass('active');
+   
+   
+   
+       });
+   });
+   planningLinks.forEach((planningLinks) => {
+      planningLinks.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['decision-making','investment','decisioninvestment'])){
+             return
+           }
+           planningSection.style.display = "block";
+           $(this).addClass('active');
+         
+   
+   
+       });
+   });
+   
+   surveyFormLinks.forEach((surveyFormLinks) => {
+      surveyFormLinks.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['current-approach','fianance','short-term-finance'])){
+             return
+           }
+   
+           surveyForm.style.display = "block";
+           $(this).addClass('active');
+   
+       });
+   });
+   
+   
+   pageQuestionLinkssix.forEach((pageQuestionLinkssix) => {
+      pageQuestionLinkssix.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['countrysurvey','regionsurvey','statesurvey','largecity'])){
+             return
+           }
+           pageQuestionssix.style.display = "block";
+           $(this).addClass('active');
+       });
+   });
+   
+
+ 
+   pageQuestionLinksseven.forEach((pageQuestionLinksseven) => {
+      pageQuestionLinksseven.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['pageeducation','pageoccupation','pagemaritalstatus','maritalchildren'])){
+             return
+           }
+           pageQuestionsseven.style.display = "block";
+           $(this).addClass('active');
+       });
+   });
+   pageQuestionLinkseight.forEach((pageQuestionLinkseight) => {
+      pageQuestionLinkseight.addEventListener("click", function (event) {
+           event.preventDefault();
+           if(validateFields(['householdmembers','workingduration','jobnature','incomefrequency'])){
+             return
+           }
+           pageQuestionseight.style.display = "block";
+           $(this).addClass('active');
+           $('.page-link').addClass('active');
+   
+       });
+   });
+
+   // $(".page-link,.options li a").click(function(){
+   //       $(this).addClass('active');
+   //  $('.page-link').addClass('active');   
+
+   // })
+   
+
+   // $("#submit_scoreform").click(function(event) {
+   //       event.preventDefault();
+   //          if(validateFields(['income_range1','income_range2','secondary_income','only_earning_member'])){
+   //             return
+   //          }
+    
+   //          var form = $('#survey_english_form')[0];
+   //          var data = new FormData(form);
+   //          // Get form
+            
+   //          $.ajax({
+   //              type: "POST",
+   //              enctype: 'multipart/form-data',
+   //              url: "https://accessassist.in/",
+   //              data: data,
+   //              processData: false,
+   //              contentType: false,
+   //              cache: false,
+   //              timeout: 800000,
+   //              success: function(data) {
+   //                  console.log(data);
+   //                  if (data.status === true) {
+   //                      location.reload(true);
+   //                      alert(data.message);
+   //                  }
+   //              },
+   //              error: function(e) {
+   //                  // console.log(e.responseJSON.errors.g-recaptcha-response);
+   //                  if (e.responseJSON.errors.name) {
+   //                      $('#age').html(e.responseJSON.errors.name);
+   //                  }
+   //                  if (e.responseJSON.errors.email) {
+   //                      $('#email_error_popup').html(e.responseJSON.errors.email);
+   //                  }
+   //                  if (e.responseJSON.errors.number) {
+   //                      $('#number_error_popup').html(e.responseJSON.errors.number);
+   //                  }
+                    
+   //              }
+   //          });
+    
+   //      });
+       
+   
+   const validateFields = ((fields)=>{
+    var error = false;
+    fields.forEach((field)=>{
+       const value = document.getElementsByName(field)[0].validationMessage;
+       if(value!=='')
+       {
+          document.getElementById(field+'Error').style.display='block';
+          error = true;
+       }
+       else{
+          document.getElementById(field+'Error').style.display='none';
+          
+       }
+   
+    })
+    return error;
+   })
+   
+</script>

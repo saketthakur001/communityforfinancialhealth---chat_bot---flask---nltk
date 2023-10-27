@@ -178,3 +178,11 @@ patterns = {
   "aye": ["survey time"],  # Nautical-style "yes"
   "fine by me": ["survey time"]
 }
+
+options_ = [['1', 'a', 'first', 'one', 'A', 'number 1', 'choice a', 'option a', 'selection a'],
+            ['2', 'b', 'second', 'two', 'B', 'number 2', 'choice b', 'option b', 'selection b'],
+            ['3', 'c', 'third', 'three', 'C', 'number 3', 'choice c', 'option c', 'selection c'],
+            ['4', 'd', 'fourth', 'four', 'D', 'number 4', 'choice d', 'option d', 'selection d'],
+            ['5', 'e', 'fifth', 'five', 'E', 'number 5', 'choice e', 'option e', 'selection e'],
+            ['6', 'f', 'sixth', 'six', 'F', 'number 6', 'choice f', 'option f', 'selection f'],
+            ['7', 'g', 'seventh', 'seven', 'G', 'number 7', 'choice g', 'option g', 'selection g']]

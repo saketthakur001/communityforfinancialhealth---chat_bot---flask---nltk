@@ -34,11 +34,11 @@ def get_options(QA):
     if len(options) == 0: options=None
     return the_question, options
 
-def survey_time():
+def survey_time(questionNo):
     englih_survay = open('English QA.txt', 'r').read()
     questions = englih_survay.split('//-')[1:]
-    for question in questions[11:]:
-        questions = get_options(question)
+    # for question in questions[questionNo]:
+        questions = get_options(questions)
         print(questions[0], '\n')
         for _ in questions[1]:
             print(_)
@@ -91,10 +91,4 @@ def get_response(user_input):
     if return_ == "survey time":
         survey_time()
     return return_
-
-# print(get_response(''))
-count = 0
-for i in range(20):
-    print(get_response(input("what is it? :"))+"\n"+'Do you wanna take a survay?')
-    count+=1
 

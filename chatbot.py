@@ -34,9 +34,10 @@ def get_options(QA):
     if len(options) == 0: options=None
     return the_question, options
 
-def survey_time():
-    englih_survay = open('English QA.txt', 'r').read()
-    questions = englih_survay.split('//-')[1:]
+englih_survay = open('English QA.txt', 'r').read()
+questions = englih_survay.split('//-')[1:]
+
+def survey_time_loop():
     for question in questions[11:]:
         the_question = get_options(question)
         print(the_question[0], '\n')
@@ -64,9 +65,26 @@ def survey_time():
         index = similarity_score.index(max(similarity_score))
         index = math.ceil((index+1)/9)
         print(index)
-        print("you have selected",questions[1][index-1])
-    # print(similarity_score)
+        print("you have selected",the_question[1][index-1])
+    print(similarity_score)
 
+
+# survay for the particular question instead of looping
+def survey_time(question_number, user_input):
+    question = questions[question_number - 1] 
+    the_question = get_options(question)
+    print(the_question[0], '\n')
+    for option in the_question[1]:
+        print(option)
+    similarity_score = []
+    for option_name in options_:
+        for name in option_name:
+            prob = compare(lemmatize(user_input), lemmatize(name))
+            similarity_score.append(prob)
+            # print(prob, name, lemmatize(user_input))
+    index = similarity_score.index(max(similarity_score))
+    selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
+    return selected_option, the_question[1], user_input
 
 
 #get the best response for a user input
@@ -92,4 +110,6 @@ def get_response(user_input):
         survey_time()
     return return_
 
-survey_time()
+
+# calculated_option_according_to_the_response, options, user_response = survey_time(2, '1')
+# print(calculated_option_according_to_the_response, options, user_response)

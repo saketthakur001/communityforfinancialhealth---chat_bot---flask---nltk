@@ -6,38 +6,38 @@
 <body>
     <h1>Chatbot</h1>
     <div id="chatbox">
-        <p>Welcome! Type your message:</p>
+        <div id="chat"></div>
+        <input type="text" id="user_input" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
     </div>
-    <form id="user_input_form">
-        <input type="text" id="user_input" name="user_input" autofocus>
-        <input type="submit" value="Send">
-    </form>
 
     <script>
-        const chatbox = document.getElementById('chatbox');
-        const user_input_form = document.getElementById('user_input_form');
-        const user_input = document.getElementById('user_input');
+        function sendMessage() {
+            var user_input = document.getElementById('user_input').value;
+            document.getElementById('user_input').value = '';
+            var chat = document.getElementById('chat');
+            chat.innerHTML += '<p>You: ' + user_input + '</p>';
+            scrollToBottom();
 
-        user_input_form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const message = user_input.value;
-            chatbox.innerHTML += `<p>You: ${message}</p>`;
-            user_input.value = '';
-
-            // Send the user's message to the server for a response
-            fetch('/get_response', {
+            // Send the user's input to the server
+            fetch('/ask', {
                 method: 'POST',
-                body: new URLSearchParams({ user_input: message }),
+                body: JSON.stringify({ user_input: user_input }),
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    'Content-Type': 'application/json'
                 }
             })
             .then(response => response.json())
             .then(data => {
-                const botResponse = data.response;
-                chatbox.innerHTML += `<p>Bot: ${botResponse}</p>`;
+                chat.innerHTML += '<p>Bot: ' + data.response + '</p>';
+                scrollToBottom();
             });
-        });
+        }
+
+        function scrollToBottom() {
+            var chat = document.getElementById('chat');
+            chat.scrollTop = chat.scrollHeight;
+        }
     </script>
 </body>
 </html>

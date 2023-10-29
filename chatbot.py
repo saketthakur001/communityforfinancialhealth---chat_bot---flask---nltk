@@ -102,22 +102,22 @@ def survey_time(question_number, user_input):
     return selected_option, the_question[1], user_input, the_question[0]
 
 
-# # survay for the particular question instead of looping
-# def survey_time(question_number, user_input):
-#     question = questions[question_number - 1] 
-#     the_question = get_options(question)
-#     print(the_question[0], '\n')
-#     for option in the_question[1]:
-#         print(option)
-#     similarity_score = []
-#     for option_name in options_:
-#         for name in option_name:
-#             prob = compare(lemmatize(user_input), lemmatize(name))
-#             similarity_score.append(prob)
-#             # print(prob, name, lemmatize(user_input))
-#     index = similarity_score.index(max(similarity_score))
-#     selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
-#     return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
+# survay for the particular question instead of looping
+def survey_time(question_number, user_input):
+    question = questions[question_number - 1] 
+    the_question = get_options(question)
+    print(the_question[0], '\n')
+    for option in the_question[1]:
+        print(option)
+    similarity_score = []
+    for option_name in options_:
+        for name in option_name:
+            prob = compare(lemmatize(user_input), lemmatize(name))
+            similarity_score.append(prob)
+            # print(prob, name, lemmatize(user_input))
+    index = similarity_score.index(max(similarity_score))
+    selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
+    return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
 
 
 #get the best response for a user input

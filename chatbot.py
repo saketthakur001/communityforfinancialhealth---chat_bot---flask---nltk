@@ -71,20 +71,53 @@ def survey_time_loop():
 
 # survay for the particular question instead of looping
 def survey_time(question_number, user_input):
-    question = questions[question_number - 1] 
+    # Get the question text and options for the specified question number
+    question = questions[question_number - 1]
     the_question = get_options(question)
+
+    # Print the question text
     print(the_question[0], '\n')
+
+    # Print the available options for the question
     for option in the_question[1]:
         print(option)
+
+    # Initialize a list to store similarity scores between user input and options
     similarity_score = []
+
+    # Iterate through each option name to calculate similarity scores
     for option_name in options_:
         for name in option_name:
+            # Calculate the similarity score using lemmatized user input and option name
             prob = compare(lemmatize(user_input), lemmatize(name))
             similarity_score.append(prob)
-            # print(prob, name, lemmatize(user_input))
+
+    # Find the index of the option with the highest similarity score
     index = similarity_score.index(max(similarity_score))
+
+    # Get the selected option based on the highest similarity score
     selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
-    return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
+
+    # Return the selected option, the list of options, the user input, and the actual question
+    return selected_option, the_question[1], user_input, the_question[0]
+
+
+# # survay for the particular question instead of looping
+# def survey_time(question_number, user_input):
+#     question = questions[question_number - 1] 
+#     the_question = get_options(question)
+#     print(the_question[0], '\n')
+#     for option in the_question[1]:
+#         print(option)
+#     similarity_score = []
+#     for option_name in options_:
+#         for name in option_name:
+#             prob = compare(lemmatize(user_input), lemmatize(name))
+#             similarity_score.append(prob)
+#             # print(prob, name, lemmatize(user_input))
+#     index = similarity_score.index(max(similarity_score))
+#     selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
+#     return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
 
 
 #get the best response for a user input
@@ -111,5 +144,7 @@ def get_response(user_input):
     return return_
 
 
-# calculated_option_according_to_the_response, options, user_response = survey_time(2, '1')
-# print(calculated_option_according_to_the_response, options, user_response)
+requst = survey_time(2, '1')
+calculated_option_according_to_the_response, options, user_response, the_question = requst
+print(calculated_option_according_to_the_response, options, user_response, the_question)
+print(requst)

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chatbox">
+        <p>Welcome! Type your message:</p>
+    </div>
+    <form id="user_input_form">
+        <input type="text" id="user_input" name="user_input" autofocus>
+        <input type="submit" value="Send">
+    </form>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+        const user_input_form = document.getElementById('user_input_form');
+        const user_input = document.getElementById('user_input');
+
+        user_input_form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const message = user_input.value;
+            chatbox.innerHTML += `<p>You: ${message}</p>`;
+            user_input.value = '';
+
+            // Send the user's message to the server for a response
+            fetch('/get_response', {
+                method: 'POST',
+                body: new URLSearchParams({ user_input: message }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botResponse = data.response;
+                chatbox.innerHTML += `<p>Bot: ${botResponse}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>

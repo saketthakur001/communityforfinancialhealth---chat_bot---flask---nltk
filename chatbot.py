@@ -34,17 +34,17 @@ def get_options(QA):
     if len(options) == 0: options=None
     return the_question, options
 
-def survey_time(questionNo):
+def survey_time():
     englih_survay = open('English QA.txt', 'r').read()
     questions = englih_survay.split('//-')[1:]
-    # for question in questions[questionNo]:
-        questions = get_options(questions)
-        print(questions[0], '\n')
-        for _ in questions[1]:
+    for question in questions[11:]:
+        the_question = get_options(question)
+        print(the_question[0], '\n')
+        for _ in the_question[1]:
             print(_)
         user_input = input("what option do you choose? : ")
         similarity_score = []
-        for _ in questions[1]:
+        for _ in the_question[1]:
             lamatized_user_input = lemmatize(user_input)
             # lamatized_option = lemmatize(_)
             # score = compare(lamatized_user_input, lamatized_option)
@@ -92,3 +92,4 @@ def get_response(user_input):
         survey_time()
     return return_
 
+survey_time()

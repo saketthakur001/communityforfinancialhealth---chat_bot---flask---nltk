@@ -37,36 +37,40 @@ def get_options(QA):
 englih_survay = open('English QA.txt', 'r').read()
 questions = englih_survay.split('//-')[1:]
 
-def survey_time_loop():
-    for question in questions[11:]:
-        the_question = get_options(question)
-        print(the_question[0], '\n')
-        for _ in the_question[1]:
-            print(_)
-        user_input = input("what option do you choose? : ")
-        similarity_score = []
-        for _ in the_question[1]:
-            lamatized_user_input = lemmatize(user_input)
-            # lamatized_option = lemmatize(_)
-            # score = compare(lamatized_user_input, lamatized_option)
-            # similarity_score.append(score)
-            column = 0
-            for option_name in options_:
-                row = 0
-                for name in option_name:
-                    prob = compare(lamatized_user_input, lemmatize(name))
-                    similarity_score.append(prob)
-                    print(prob, name, lamatized_user_input)
-                    row += 1
-                column += 1
-                # print(row)
-            # print(column)
-        # print(max(similarity_score), 'this is the max')
-        index = similarity_score.index(max(similarity_score))
-        index = math.ceil((index+1)/9)
-        print(index)
-        print("you have selected",the_question[1][index-1])
+def survey_time_loop(question_number, user_input):
+    question = questions[question_number - 1]
+    the_question = get_options(question)[0]
+
+    # for question in questions[11:]:
+        # the_question = get_options(question)
+    print(the_question[0], '\n')
+    for _ in the_question[1]:
+        print(_)
+    # user_input = input("what option do you choose? : ")
+    similarity_score = []
+    for _ in the_question[1]:
+        lamatized_user_input = lemmatize(user_input)
+        # lamatized_option = lemmatize(_)
+        # score = compare(lamatized_user_input, lamatized_option)
+        # similarity_score.append(score)
+        column = 0
+        for option_name in options_:
+            row = 0
+            for name in option_name:
+                prob = compare(lamatized_user_input, lemmatize(name))
+                similarity_score.append(prob)
+                print(prob, name, lamatized_user_input)
+                row += 1
+            column += 1
+            # print(row)
+        # print(column)
+    # print(max(similarity_score), 'this is the max')
+    index = similarity_score.index(max(similarity_score))
+    index = math.ceil((index+1)/9)
+    print(index)
+    print("you have selected",the_question[1][index-1])
     print(similarity_score)
+    return the_question[1][index-1], the_question[1], user_input,the_question[0] 
 
 
 # survay for the particular question instead of looping
@@ -104,7 +108,7 @@ def survey_time(question_number, user_input):
 
 # survay for the particular question instead of looping
 def survey_time(question_number, user_input):
-    question = questions[question_number - 1] 
+    question = questions[question_number - 2] 
     the_question = get_options(question)
     print(the_question[0], '\n')
     for option in the_question[1]:
@@ -114,7 +118,7 @@ def survey_time(question_number, user_input):
         for name in option_name:
             prob = compare(lemmatize(user_input), lemmatize(name))
             similarity_score.append(prob)
-            # print(prob, name, lemmatize(user_input))
+            print(prob, name, lemmatize(user_input))
     index = similarity_score.index(max(similarity_score))
     selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
     return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
@@ -144,7 +148,9 @@ def get_response(user_input):
     return return_
 
 
-requst = survey_time(2, '1')
-calculated_option_according_to_the_response, options, user_response, the_question = requst
-print(calculated_option_according_to_the_response, options, user_response, the_question)
-print(requst)
+# requst = survey_time(11, '3')
+# calculated_option_according_to_the_response, options, user_response, the_question = requst
+# print(calculated_option_according_to_the_response, options, user_response, the_question)
+# print(requst)
+
+# survey_time_loop(12, '3')

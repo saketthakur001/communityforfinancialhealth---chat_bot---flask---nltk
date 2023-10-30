@@ -118,11 +118,11 @@ def survey_time(question_number, user_input):
         for name in option_name:
             prob = compare(lemmatize(user_input), lemmatize(name))
             similarity_score.append(prob)
-            print(prob, name, lemmatize(user_input))
+            # print(prob, name, lemmatize(user_input))
     index = similarity_score.index(max(similarity_score))
     selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
+    print(f'you have selected {selected_option}')
     return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
-
 
 #get the best response for a user input
 def get_response(user_input):
@@ -153,4 +153,5 @@ def get_response(user_input):
 # print(calculated_option_according_to_the_response, options, user_response, the_question)
 # print(requst)
 
-# survey_time_loop(12, '3')
+survay = survey_time(3, '1')
+print(survay)

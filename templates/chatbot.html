@@ -1,166 +1,32 @@
+<!-- survey.html -->
+
 <html>
-<head>
-    <title>Chatbot Web App</title>
-    <style>
-        /* Add some style to the web page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333333;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .chatbox {
-            display: flex;
-            flex-direction: column;
-            height: 500px;
-            border: 1px solid #cccccc;
-            overflow-y: scroll;
-            padding: 10px;
-        }
-
-        .chatbox::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .chatbox::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-          
-        .chatbox::-webkit-scrollbar-thumb {
-            background: #888; 
-        }
-          
-        .chatbox::-webkit-scrollbar-thumb:hover {
-            background: #555; 
-        }
-
-        .message {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .message img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .message p {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 10px;
-            word-wrap: break-word;
-            max-width: 80%;
-        }
-
-        .user {
-            justify-content: flex-end;
-        }
-
-        .user p {
-            background-color: #e6e6e6;
-        }
-
-        .input-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .input-box input {
-            width: 80%;
-            height: 40px;
-            border-radius: 10px;
-            border: none;
-            padding-left: 10px;
-        }
-
-        .input-box button {
-            width: 15%;
-            height: 40px;
-            border-radius: 10px;
-            border: none;
-            background-color: #333333;
-            color: #ffffff;
-        }
-    </style>
-
-<head>
-    <title>Chatbot Web App</title>
-</head>
 <body>
-    <div class="container">
-        <h1>Chatbot Web App</h1>
-        <div class="chatbox" id="chatbox">
-            
-        </div>
-        <div class="input-box">
-            <input type="text" id="user-input" placeholder="Type your message here...">
-            <button id="send-button">Send</button>
-        </div>
-    </div>
-    <script>
-        // Function to send user message to Flask server
-        function send() {
-            var userMessage = document.getElementById("user-input").value;
-            if (userMessage.trim() !== "") {
-                // Append user message to the chatbox
-                var userMessageElement = document.createElement("div");
-                userMessageElement.className = "message user";
-                userMessageElement.innerHTML = "<p>" + userMessage + "</p>";
-                document.getElementById("chatbox").appendChild(userMessageElement);
 
-                // Send the user message to the server using fetch
-                fetch('/chatbot', {
-                    method: 'POST',
-                    body: new URLSearchParams({ 'message': userMessage }),
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Append the chatbot's response to the chatbox
-                    var chatbotResponseElement = document.createElement("div");
-                    chatbotResponseElement.className = "message";
-                    chatbotResponseElement.innerHTML = "<p>" + data.message + "</p>";
-                    document.getElementById("chatbox").appendChild(chatbotResponseElement);
+<h1>Conversational Survey Bot</h1>
 
-                    // Check if the response contains a question and options
-                    if (data.question && data.options) {
-                        // Display the question and options
-                        var questionElement = document.createElement("p");
-                        questionElement.textContent = data.question;
-                        document.getElementById("chatbox").appendChild(questionElement);
+<form method="POST">
+  <label>You: </label>
+  <input type="text" name="user_input">
+  
+  <br>
+  
+  <label>Bot:</label>
+  <div id="bot-output"></div>
 
-                        for (var i = 0; i < data.options.length; i++) {
-                            var optionElement = document.createElement("p");
-                            optionElement.textContent = data.options[i];
-                            document.getElementById("chatbox").appendChild(optionElement);
-                        }
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+  <input type="submit" value="Send">
+</form>
 
-                // Clear the input field
-                document.getElementById("user-input").value = "";
-            }
-        }
+<script>
+  // Handle enter key press
+  const input = document.querySelector('input[name="user_input"]');
+  input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) { 
+      event.preventDefault();
+      document.querySelector('form').submit();
+    }
+  }); 
+</script>
 
-        // Attach the send function to the button click event
-        document.getElementById("send-button").addEventListener("click", send);
-    </script>
 </body>
 </html>

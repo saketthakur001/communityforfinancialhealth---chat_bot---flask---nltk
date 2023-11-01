@@ -70,7 +70,7 @@ def survey_time_loop(question_number, user_input):
     print(index)
     print("you have selected",the_question[1][index-1])
     print(similarity_score)
-    return the_question[1][index-1], the_question[1], user_input,the_question[0] 
+    return the_question[1][index-1], the_question[1], user_input, the_question[0] 
 
 
 # survay for the particular question instead of looping
@@ -108,7 +108,7 @@ def survey_time(question_number, user_input):
 
 # survay for the particular question instead of looping
 def survey_time(question_number, user_input):
-    question = questions[question_number - 2] 
+    question = questions[question_number - 1]
     the_question = get_options(question)
     print(the_question[0], '\n')
     for option in the_question[1]:
@@ -120,9 +120,46 @@ def survey_time(question_number, user_input):
             similarity_score.append(prob)
             # print(prob, name, lemmatize(user_input))
     index = similarity_score.index(max(similarity_score))
-    selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
+    try:
+        selected_option = the_question[1][math.ceil((index + 1) / 9) - 1]
+    except:
+        selected_option = False
+    # if not selected_option:
     print(f'you have selected {selected_option}')
     return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
+
+# survay for the particular question instead of looping
+def get_the_question(question_number):
+    question = questions[question_number - 1]
+    the_question = get_options(question)
+    print(the_question[0], '\n')
+    for option in the_question[1]:
+        print(option)
+    return the_question[1], the_question[0] # the last one I just added this is the actual question
+
+#get the best response for a user input
+def get_response(user_input):
+    scores = []
+    responses = []
+
+    # Loop through the patterns
+    for pattern in patterns:
+        # lemmatize the pattern and the user_input
+        pattern_ = lemmatize(pattern)
+        user_input_ = lemmatize(user_input)
+        scores.append(compare(pattern_, user_input_))
+        responses.append(patterns[pattern])
+
+    #  index of the best score
+    best_score = max(scores)
+    print(best_score)
+    best_index = scores.index(best_score)
+
+    return_ = random.choice(responses[best_index])
+    if return_ == "survey time":
+        survey_time()
+    return return_
+
 
 #get the best response for a user input
 def get_response(user_input):
@@ -153,5 +190,5 @@ def get_response(user_input):
 # print(calculated_option_according_to_the_response, options, user_response, the_question)
 # print(requst)
 
-survay = survey_time(3, '1')
-print(survay)
+# survay = survey_time(3, '1')
+# print(survay)

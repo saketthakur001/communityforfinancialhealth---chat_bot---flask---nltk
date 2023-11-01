@@ -1,26 +1,19 @@
 //-1. What is your age?
-
-This Field Is Required
+user_input_required
 
 
 //-2. Mention Your Gender
 
-Please Select
+
 Male
 Female
 Other
 
-This Field Is Required
 
-
-
-
-
-Saving
 
 //-3. In the past 12 months how often were you able to save part of your income?
 
-Please Select
+
 Daily
 Weekly
 Monthly
@@ -28,12 +21,12 @@ Bi-Annually
 Annually
 Not able to save at all
 
-This Field Is Required
+
 
 
 //-4. In the past 12 months how much of your total income were you able to save?
 
-Please Select
+
 Much more than half my income
 Little more than half my income
 About half of my income
@@ -41,12 +34,12 @@ Little less than half my income
 Much less than half my income
 Not all to save at all
 
-This Field Is Required
+
 
 
 //-5. Which of the following statements best describes your total savings compared to your total spending in the past 12 months?
 
-Please Select
+
 Saving was much more than spending
 Saving was a little more than spending
 Saving was about equal to spending
@@ -54,275 +47,222 @@ Saving was a little less than spending
 Saving was much less than spending
 No saving at all
 
-This Field Is Required
 
-
-
-
-
-Spending
 
 //-6. Which of the following statements best describes your total spending compared to your total income in the past 12 months?
 
-Please Select
+
 Spending was much less than income
 Spending was a little less than income
 Spending was little more than income
 Spending was much more than income
 Spending about equal to income
 
-This Field Is Required
+
 
 
 //-7. Which of the following statements best describes how you were able to pay your bills (rent, utilities, education, etc) over the last 12 months?
 
-Please Select
+
 Paid all bills on time
 Paid most of our bills on time
 Paid some of our bills on time
 Paid very few bills on time
 Barely paid any bill on time
 
-This Field Is Required
+
 
 
 //-8. Which of the following statements describe your expenditure pattern in purchasing essential and non-essential commodities?
 
-Please Select
+
 Expenditure on essential goods is much higher than that on non-essential goods
 Expenditure on essential goods is slightly higher than that on non-essential good
 Expenditure on essential goods is equal to that on non-essential goods
 Expenditure on essential goods is slightly lower than that on non-essential goods
 Expenditure on essential goods is much lower than that on non-essential goods
 
-This Field Is Required
 
 
-
-
-Borrowing
 
 //-9. How easy or difficult is it for you to raise a loan from a formal financial institution?
 
-Please Select
+
 Very Easy
 Moderately Easy
 Neutral
 Moderately Difficult
 Very Difficult
 
-This Field Is Required
+
 
 
 //-10. In the past 12 months how frequently did you have to borrow money from a financial institution or family?
 
-Please Select
+
 once a year
 Once in 6 months
 Once in 3 months
 Every month
 Never
 
-This Field Is Required
-
 
 //-11. Considering the amount bororwed over the last 12 months, how frequently could you repay the EMIs?
 
-Please Select
+
 Paid all EMIs on time
 Paid most EMIs on time
 Paid some EMIs on time
 Barely paid any EMIs on time
 Never had to pay EMI since I never borrowed money
 
-This Field Is Required
 
-
-
-
-
-Resilience
 
 //-12. If you lose employment, how many days can you sustain with the money you have saved?
 
-Please Select
+
 More than a year
 6 months - 1 year
 2-6 months
 One month
 Less than a week
 
-This Field Is Required
+
 
 
 //-13. How easy or difficult will it be for you to raise money in case of an emergency?
 
-Please Select
+
 Very Easy
 Moderately Easy
 Neutral
 Moderately Difficult
 Very Difficult
 
-This Field Is Required
+
 
 
 //-14. How frequently have you invested in insurance policies or long-term saving schemes in the past 12 months (all kinds of insurance like- health and non-health/life and non-life)?
 
-Please Select
+
 Once a year
 Once in 6 months
 Once in 3 months
 Every month
 Never
 
-This Field Is Required
 
 
-
-
-Decision-Making
 
 //-15.What best describes your financial decision-making ability?
 
-Please Select
+
 I don't consult others, I am fully confident to take decisions instantly">I don't consult others, I am fully confident to take decisions instantly
 I don't consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing">
-                     I don’t consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing 
-                  
+I don’t consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing 
+                     
 I make my financial decisions, but in consultation with others">I make my financial decisions, but in consultation with others
 I always need to consult others for guidance">I always need to consult others for guidance
 I don't make financial decisions (someone else makes the decision)
 
-This Field Is Required
+
 
 
 //-16.While deciding on investing in an asset (house/land), which of the statements best describe you?
 
-Please Select
+
 I am fully aware of these assets and make all decisions independently">I am fully aware of these assets and make all decisions independently
 I consult with a financial expert before making any decisions regarding investing in these assets">
-                     I consult with a financial expert before making any decisions regarding investing in these assets 
-                  
+                        I consult with a financial expert before making any decisions regarding investing in these assets 
+                     
 I make decisions regarding investing in these assets in consultation with friends and family
 I don't make these decisions. I rely on financial experts to make these decisions for me
 I don't make these decisions. I rely on friends and family to make these decisions for me">
-                     I don't make these decisions. I rely on friends and family to make these decisions for me
-                  
+                        I don't make these decisions. I rely on friends and family to make these decisions for me
+                     
 
-This Field Is Required
+
 
 
 //-17.While deciding on investment in an instrument(mutal funs/FD/RD), which of the statements would best describe you?
 
-Please Select
+
 I am fully aware of these instruments and make all decisions independently
 I consult with a financial expert before making any decisions regarding investing in these instruments 
 I make decisions regarding investing in these instruments in consultation with friends and family
 I don't make these decisions. I rely on financial experts to make these decisions to make these decision independently
 I don't make these decisions. I rely on friends and family to make these decisions for me
 
-This Field Is Required
 
-
-
-
-Planning
 
 //-18. Which of the following best describes your current approach to budgeting?
 
-Please Select
+
 I have a formal budget that's documented (e.g. spreadsheet, book or online tool) that calculates my outgoing expenses and the amount of money I need to allocate each week or month
 I have a ‘mental’ budget – no documentation or spreadsheets, but I still keep track of my finances and spending
 I keep a mental budget but do not track of all my finances and spending, only the major expenses
 I don't work a budget at all and spend what I can afford at that time I don't work to a budget at all
 
-This Field Is Required
+
 
 
 //-19. Which of the following statements best describes you in relation to your finances?
 
-Please Select
+
 I am actively planning for my financial future
 I'm primarily focused on my finances today and have started taking active steps towards planning my future finances
 I’m starting to think about planning for my financial future but have not yet taken active steps towards this
 I’m primarily focused on my finances today and haven’t put much thought into planning for my financial future
 I have put no thought into my planning for my financial future
 
-This Field Is Required
+
 
 
 //-20.In the past 12 months how often have invested to achieve a short term financial goal(FDs, RDs,Mutual funds, stocks, etc)
 
-Please Select
+
 very often
 Often
 Sometimes
 Not Often
 Never
 
-This Field Is Required
 
 
 
+//-21. Which Country do you live in?*
 
 
-Survey Form - Page 5
-
-3. Which Country do you live in?*
-
-Please Select
 India
 America
 Landon
 
-This Field Is Required
 
 
-4. Which Region do you live in?
 
-Please Select
-1
-2
-3
-
-This Field Is Required
+//-22. Which Region do you live in?
+user_input_required
 
 
- 5. What state or
-                  union territory do you
-                  live in?
-
-Please Select
-1
-2
-3
-
-This Field Is Required
 
 
-6. Which of the
-                  following best describes
-                  the place where you live now?
+//-23. What state or union territory do you live in?
+user_input_required
 
-Please Select
+//-24. Which of the following best describes the place where you live now?
+
 A large city
 A suburb near a large city
 A small city or town
 A rural or remote community
 Prefer not to say
 
-This Field Is Required
 
 
 
-Survey Form - Page 6
+//-25. What is the highest degree or level of education you have completed?
 
-7. What is the
-               highest degree or level of
-               education you have completed?
 
-Please Select
 Not Literate
 Vocational Training
 Literate without formal education
@@ -331,14 +271,11 @@ High School
 Undergraduate
 Graduate and above
 
-This Field Is Required
 
 
-8. Please Select
-               which option best
-               describes your current occupational status
 
-Please Select
+//-26. which option best describes your current occupational status
+
 Employed
 Self Employed
 Unemployed
@@ -346,13 +283,12 @@ Retired
 Student
 Others Specify
 
-This Field Is Required
 
 
-9. Which sector describes your current
-               largest scope of work?
 
-Please Select
+//-27. Which sector describes your current largest scope of work?
+
+
 Technology/IT
 Finance/Accounting/Banking
 Healthcare/Medical
@@ -371,30 +307,23 @@ Transportation/Logistics
 Multiple
 Other
 
-This Field Is Required
 
 
-10. Please mention your current marital
-               status
 
-Please Select
+//-28. Please mention your current marital status
+
+
 Married
 Divorced
 Unmarried
 Separated
 Widower/widow
 
-This Field Is Required
 
 
+//-29. Mention the number of children you have
 
 
-Survey Form - Page 7
-
-11. Mention the number of children you
-               have
-
-Please Select
 None
 1
 2
@@ -403,15 +332,12 @@ None
 5 or more
 Prefer not to say
 
-This Field Is Required
 
 
-12. Excluding you, how many members are
-               there in the household? (Please count any partner, children,
-               family, relatives, roommates etc.- all members staying under one roof and sharing food
-               from the same kitchen)
 
-Please Select
+//-30. Excluding you, how many members are there in the household? (Please count any partner, children, family, relatives, roommates etc.- all members staying under one roof and sharing food from the same kitchen)
+
+
 0
 1
 2
@@ -420,39 +346,30 @@ Please Select
 5
 6 or More
 
-This Field Is Required
 
 
-13. How long have you been
-               working?
 
-Please Select
+//-31. How long have you been working?
+
+
 Less than 6 months
 6 months-1 year
 1-5 year
 5-10 year
 More than 10 year
 
-This Field Is Required
 
 
-14. What is the nature of your current
-               job?
 
-Please Select
+//-32. What is the nature of your current job?
+
 Full Time
 Part Time
 
-This Field Is Required
+
+//-33. What frequency do you generate income from your occupation?
 
 
-
-Survey Form - Page 8
-
-15. What frequency do you generate income
-               from your occupation?
-
-Please Select
 Daily
 Weekly
 Once in 15 Days
@@ -460,14 +377,12 @@ Monthly
 Once in 3 Months
 Annually
 
-This Field Is Required
 
 
-16. What is your average monthly income?
-               (Please enter your individual income and not the household
-               income)
 
-Please Select
+//-34. What is your average monthly income? (Please enter your individual income and not the household income)
+
+
 Less than 10000 INR
 11,000 - 20,000 INR
 21,000 - 30,000 INR
@@ -480,92 +395,26 @@ Less than 10000 INR
 91,000 - 100,000 INR
 More than 100000 INR
 
-This Field Is Required
+
+//-35. What is your average monthly income? (Please enter your individual income and not the household income)
 
 
-17. What is your average monthly income?
-               (Please enter your individual income and not the household
-               income)
-
-Please Select
 Yes, through investments or rental property
 Occasionally, through freelance or part-time work
 Yes, through a side business or online venture
 Yes, through a part-time
-Yes, through gig-based platforms like ride-sharing, food delivery, or
-                     task services.
-                  
+Yes, through gig-based platforms like ride-sharing, food delivery, or task services.
+                     
 Others
 No, I don’t have any secondary source of Income
 Prefer not to answer
 
-This Field Is Required
 
 
-18. Are you the Only earning member in your household?* 
 
-Please Select
+//-36. Are you the Only earning member in your household?* 
+
 Yes
 No
 Prefer Not To Say
-
-This Field Is Required
-
-
-
-
-
-
-
-Questionnaire Part-1
-
-
-Page 1
-
-1. About Questions
-2. Saving
-
-
-
-Page 2
-
-1. Spending
-2. Borrowing
-
-
-
-Page 3
-
-1. Resilience
-2. Decision-Making
-
-
-
-Page 4
-
-1. Planning
-
-
-
-
-
-Questionnaire Part-2
-
-Survey-form Page 5
-Page 6
-Page 7
-Page 8
-
-
-
-
-Submit
-
-
-
-
-
-
-
-@include('frontend.include.footer')
 

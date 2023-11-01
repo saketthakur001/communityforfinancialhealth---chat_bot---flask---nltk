@@ -232,7 +232,6 @@ Never
 
 //-21. Which Country do you live in?*
 
-
 India
 America
 Landon
@@ -249,8 +248,8 @@ user_input_required
 //-23. What state or union territory do you live in?
 user_input_required
 
-//-24. Which of the following best describes the place where you live now?
 
+//-24. Which of the following best describes the place where you live now?
 A large city
 A suburb near a large city
 A small city or town
@@ -288,25 +287,7 @@ Others Specify
 
 //-27. Which sector describes your current largest scope of work?
 
-
-Technology/IT
-Finance/Accounting/Banking
-Healthcare/Medical
-Education
-Real Estate
-Retail/E-Commerce
-Hospitality/Tourism
-ManuFacturing/Enginnering
-Govenment/Public Sector
-Media/Entertainment
-Professional Services
-Non-Profit/Charity
-Agriculture
-Food production
-Transportation/Logistics
-Multiple
-Other
-
+user_input_required
 
 
 
@@ -382,18 +363,7 @@ Annually
 
 //-34. What is your average monthly income? (Please enter your individual income and not the household income)
 
-
-Less than 10000 INR
-11,000 - 20,000 INR
-21,000 - 30,000 INR
-31,000 - 40,000 INR
-41,000 - 50,000 INR
-51,000 - 60,000 INR
-61,000 - 70,000 INR
-71,000 - 80,000 INR
-81,000 - 90,000 INR
-91,000 - 100,000 INR
-More than 100000 INR
+user_input_required
 
 
 //-35. What is your average monthly income? (Please enter your individual income and not the household income)

@@ -33,6 +33,7 @@ def chatbot():
         # 'options' : list_of_options,
         }
         return jsonify(response_data)
+
     # Return the selected option, the list of options, the user input, and the actual question
     selected_option, list_of_options, user_input, the_question = survey_time(chat_no-1, message)
     if selected_option:

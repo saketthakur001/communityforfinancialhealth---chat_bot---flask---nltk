@@ -21,7 +21,7 @@ the_question = get_options(question)[0]
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
     global chat_no, prevous_selection, first_chat, the_question, user_input, chat_mode
-    chat_mode = True
+    # chat_mode = True
     message = request.form['message'] # Get the message from the form
     print(message)
     if first_chat: 
@@ -34,6 +34,17 @@ def chatbot():
         }
         return jsonify(response_data)
 
+    if chat_mode:
+        print('chat mode is enabled')
+        selected_option, list_of_options, user_input, the_question = get_response(message)
+        response_data = {
+            'message':'You have selected"'+selected_option+'" as your previous response.',
+            # 'message': 
+            'question': the_question,
+            'options' : list_of_options,
+            'user_input' : user_input,
+        }
+        return jsonify(response_data)
     # Return the selected option, the list of options, the user input, and the actual question
     selected_option, list_of_options, user_input, the_question = survey_time(chat_no-1, message)
     if selected_option:

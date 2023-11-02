@@ -24,23 +24,23 @@ def chatbot():
     # chat_mode = True
     message = request.form['message'] # Get the message from the form
     print(message)
-    if first_chat: 
-        # response_data['message'] = ""
-        first_chat = False
-        response_data = {
-        'message':'Hi there I am a chatbot, and it\'s time to take a survey.',
-        # 'question': the_question
-        # 'options' : list_of_options,
-        }
-        return jsonify(response_data)
+    # if first_chat: 
+    #     # response_data['message'] = ""
+    #     first_chat = False
+    #     response_data = {
+    #     'message':'Hi there I am a chatbot, and it\'s time to take a survey.',
+    #     # 'question': the_question
+    #     # 'options' : list_of_options,
+    #     }
+    #     return jsonify(response_data)
 
     if chat_mode:
         print('chat mode is enabled')
-        selected_option, list_of_options, user_input, the_question = get_response(message)
+        selected_option, list_of_options, user_input, the_question, chat_mode = get_response(message)
         response_data = {
-            'message':'You have selected"'+selected_option+'" as your previous response.',
+            'message':the_question,
             # 'message': 
-            'question': the_question,
+            # 'question': the_question,
             'options' : list_of_options,
             'user_input' : user_input,
         }

@@ -180,12 +180,12 @@ def get_response(user_input):
     best_score = max(scores)
     print(best_score)
     best_index = scores.index(best_score)
-    survey_mode = False
+    chat_mode = True
     return_ = random.choice(responses[best_index])
     if return_ == "survey time":
         # survey_time()
-        survey_mode = True
-    return '' , [], user_input, return_, survey_mode
+        survey_mode = False
+    return '' , [], user_input, return_, chat_mode
 # requst = survey_time(11, '3')
 # calculated_option_according_to_the_response, options, user_response, the_question = requst
 # print(calculated_option_according_to_the_response, options, user_response, the_question)

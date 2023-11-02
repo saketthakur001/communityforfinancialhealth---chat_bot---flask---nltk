@@ -137,7 +137,9 @@ def get_the_question(question_number):
         print(option)
     return the_question[1], the_question[0] # the last one I just added this is the actual question
 
+
 #get the best response for a user input
+# !!! this is the terminal version
 def get_response(user_input):
     scores = []
     responses = []
@@ -161,30 +163,7 @@ def get_response(user_input):
     return return_
 
 
-#get the best response for a user input
-def get_response(user_input):
-    scores = []
-    responses = []
-
-    # Loop through the patterns
-    for pattern in patterns:
-        # lemmatize the pattern and the user_input
-        pattern_ = lemmatize(pattern)
-        user_input_ = lemmatize(user_input)
-        scores.append(compare(pattern_, user_input_))
-        responses.append(patterns[pattern])
-
-    #  index of the best score
-    best_score = max(scores)
-    print(best_score)
-    best_index = scores.index(best_score)
-
-    return_ = random.choice(responses[best_index])
-    if return_ == "survey time":
-        survey_time()
-    return return_
-
-
+# this is the flask version
 def get_response(user_input):
     scores = []
     responses = []
@@ -201,11 +180,12 @@ def get_response(user_input):
     best_score = max(scores)
     print(best_score)
     best_index = scores.index(best_score)
-
+    survey_mode = False
     return_ = random.choice(responses[best_index])
     if return_ == "survey time":
-        survey_time()
-    return '' , [], user_input, return_
+        # survey_time()
+        survey_mode = True
+    return '' , [], user_input, return_, survey_mode
 # requst = survey_time(11, '3')
 # calculated_option_according_to_the_response, options, user_response, the_question = requst
 # print(calculated_option_according_to_the_response, options, user_response, the_question)

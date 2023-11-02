@@ -29,7 +29,7 @@ def chatbot():
         first_chat = False
         response_data = {
         'message':'Hi there I am a chatbot, and it\'s time to take a survey.',
-        # 'question': the_question,
+        # 'question': the_question
         # 'options' : list_of_options,
         }
         return jsonify(response_data)

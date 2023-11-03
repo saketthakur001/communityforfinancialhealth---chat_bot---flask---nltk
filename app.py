@@ -9,8 +9,8 @@ def index():
 
 global chat_no, prevous_selection, first_chat, the_question, user_input, chat_mode
 
-chat_no = 12
-first_chat = True
+chat_no = 2
+first_chat = False
 prevous_selection = ""
 user_input = ""
 chat_mode = True
@@ -24,15 +24,17 @@ def chatbot():
     # chat_mode = True
     message = request.form['message'] # Get the message from the form
     print(message)
-    # if first_chat: 
-    #     # response_data['message'] = ""
-    #     first_chat = False
-    #     response_data = {
-    #     'message':'Hi there I am a chatbot, and it\'s time to take a survey.',
-    #     # 'question': the_question
-    #     # 'options' : list_of_options,
-    #     }
-    #     return jsonify(response_data)
+    selected_option, list_of_options, user_input, the_question, user_text_input_required = survey_time(chat_no-1, message)
+    if first_chat:
+        # response_data['message'] = ""
+        first_chat = False
+        response_data = {
+        'message':'Hi there, you have entered the Survey',
+        # 'question': the_question,
+        # 'options' : list_of_options,
+        }
+        chat_no+=1
+        return jsonify(response_data)
 
     if chat_mode:
         print('chat mode is enabled')
@@ -44,11 +46,17 @@ def chatbot():
             'options' : list_of_options,
             'user_input' : user_input,
         }
+        if not chat_mode: first_chat = True
         return jsonify(response_data)
-    # Return the selected option, the list of options, the user input, and the actual question
-    selected_option, list_of_options, user_input, the_question = survey_time(chat_no-1, message)
+
+    # Return the selected option, the list of options, the user input, and the actual questionselected_option, list_of_options, user_input, the_question = survey_time(chat_no-1, message)
+    print('user text input required is ', user_text_input_required, 'and the message is ','attention required'*100)
+    if user_text_input_required:
+        selected_option = message
+        print('user text input required is ', user_text_input_required, 'and the message is ', message)
+        print(selected_option)
     if selected_option:
-        list_of_options, the_question = get_the_question(chat_no)
+        list_of_options, the_question, user_text_input_required = get_the_question(chat_no)
         response_data = {
             'message':'You have selected"'+selected_option+'" as your previous response.',
             # 'message': 

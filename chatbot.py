@@ -32,9 +32,12 @@ def get_options(QA):
     the_question = QA[0]
     options = [_ for _ in QA[1:] if _ != '' and _ !="Please Select"]
     if len(options) == 0: options=None
-    return the_question, options
+    print(options[0], '!!!!!'*1000)
+    user_text_input_required = options[0] == 'user_input_required'
+    print(user_text_input_required)
+    return the_question, options, user_text_input_required
 
-englih_survay = open('English QA.txt', 'r').read()
+englih_survay = open('new english.txt', 'r').read()
 questions = englih_survay.split('//-')[1:]
 
 def survey_time_loop(question_number, user_input):
@@ -72,7 +75,6 @@ def survey_time_loop(question_number, user_input):
     print(similarity_score)
     return the_question[1][index-1], the_question[1], user_input, the_question[0] 
 
-
 # survay for the particular question instead of looping
 def survey_time(question_number, user_input):
     # Get the question text and options for the specified question number
@@ -105,10 +107,10 @@ def survey_time(question_number, user_input):
     # Return the selected option, the list of options, the user input, and the actual question
     return selected_option, the_question[1], user_input, the_question[0]
 
-
 # survay for the particular question instead of looping
 def survey_time(question_number, user_input):
     question = questions[question_number - 1]
+    the_question, options, user_text_input_required = get_options(question)
     the_question = get_options(question)
     print(the_question[0], '\n')
     for option in the_question[1]:
@@ -126,16 +128,18 @@ def survey_time(question_number, user_input):
         selected_option = False
     # if not selected_option:
     print(f'you have selected {selected_option}')
-    return selected_option, the_question[1], user_input, the_question[0] # the last one I just added this is the actual question
+    if user_text_input_required: selected_option = user_input
+    return selected_option, the_question[1], user_input, the_question[0], user_text_input_required # the last one I just added this is the actual question
 
 # survay for the particular question instead of looping
 def get_the_question(question_number):
     question = questions[question_number - 1]
+    # the_question, options_, user_text_input_required, get_options(question)
     the_question = get_options(question)
     print(the_question[0], '\n')
     for option in the_question[1]:
         print(option)
-    return the_question[1], the_question[0] # the last one I just added this is the actual question
+    return the_question[1], the_question[0], the_question[2] # the last one I just added this is the actual question
 
 
 #get the best response for a user input
@@ -162,7 +166,6 @@ def get_response(user_input):
         survey_time()
     return return_
 
-
 # this is the flask version
 def get_response(user_input):
     scores = []
@@ -184,8 +187,9 @@ def get_response(user_input):
     return_ = random.choice(responses[best_index])
     if return_ == "survey time":
         # survey_time()
-        survey_mode = False
+        chat_mode = False
     return '' , [], user_input, return_, chat_mode
+    
 # requst = survey_time(11, '3')
 # calculated_option_according_to_the_response, options, user_response, the_question = requst
 # print(calculated_option_according_to_the_response, options, user_response, the_question)

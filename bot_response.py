@@ -92,14 +92,14 @@ patterns = {
   # "okay": ["Okay!","Sounds good!"],
 
   # Negations and Responses
-  "no": ["Okay!", "Understood.", "Got it."],
-  "not really": ["Alright.", "I see."],
-  "negative": ["Acknowledged.", "I understand."],
-  "nah": ["Alright then.", "Sure."],
-  "not at all": ["Okay.", "No problem."],
-  "never": ["I see.", "Understood."],
-  "don't think so": ["Alright.", "Got it."],
-  "not really": ["Alright.", "I see."],
+  # "no": ["Okay!", "Understood.", "Got it."],
+  # "not really": ["Alright.", "I see."],
+  # "negative": ["Acknowledged.", "I understand."],
+  # "nah": ["Alright then.", "Sure."],
+  # "not at all": ["Okay.", "No problem."],
+  # "never": ["I see.", "Understood."],
+  # "don't think so": ["Alright.", "Got it."],
+  # "not really": ["Alright.", "I see."],
 
   #Bot identity
   "who are you": ["I'm a chatbot created powered by i3access to be helpful, harmless, and honest."],
@@ -171,13 +171,29 @@ patterns = {
   "alright": ["survey time"],
   "fine": ["survey time"],
   "affirmative captain": ["survey time"],
-  "no problem": ["survey time"],  # For a more casual "yes"
-  "okidoki": ["survey time"],  # For a playful "yes"
-  "okay-dokey": ["survey time"],  # Another playful "yes"
-  "roger": ["survey time"],  # Informal military-style "yes"
-  "aye": ["survey time"],  # Nautical-style "yes"
-  "fine by me": ["survey time"]
+  # "no problem": ["survey time"],  # For a more casual "yes"
+  # "okidoki": ["survey time"],  # For a playful "yes"
+  # "okay-dokey": ["survey time"],  # Another playful "yes"
+  # "roger": ["survey time"],  # Informal military-style "yes"
+  # "aye": ["survey time"],  # Nautical-style "yes"
+  "fine by me": ["survey time"],
+  "no": ["not interested"],
+  "nope": ["not interested"],
+  # "negative": ["not interested"],
+  "nah": ["not interested"],
+  "not really": ["not interested"],
+  "not at all": ["not interested"],
+  # "unfortunately": ["not interested"],
+  "sorry": ["not interested"],
+  # "disagree": ["not interested"],
+  "opposed": ["not interested"],
+  # "veto": ["not interested"],
+  "denied": ["not interested"],
+  "decline": ["not interested"],
+  # "refused": ["not interested"],
+  # "negative captain": ["not interested"]
 }
+
 
 options_ = [['1', 'a', 'first', 'one', 'A', 'number 1', 'choice a', 'option a', 'selection a'],
             ['2', 'b', 'second', 'two', 'B', 'number 2', 'choice b', 'option b', 'selection b'],

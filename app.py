@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from chatbot import * # Import the chatbot.py file that contains the functions
-from icecream import ic
+# from icecream import ic
 
 app = Flask(__name__)
 
@@ -48,16 +48,17 @@ def chatbot():
                 'message':'You have entered the survey.',
                 # 'message': 
                 'question': the_question,
-                'options' : list_of_options,
-            }
-            if list_of_options[0] != "user_input_required":
-                response_data['options'] = list_of_options
-            else:user_input = message
+                'options' : ' ',
+            } 
+            # if list_of_options[0] != "user_input_required":
+            #     response_data['options'] = list_of_options
+            # else:user_input = message
             prevous_selection = selected_option
             # global prevous_selection 
             chat_no += 1
             return jsonify(response_data)
-
+        if user_wants_to_do_the_survey:
+            the_question = the_question+'     Do you wanna start a survey?'
         response_data = {
             'message':the_question,
             # 'message': 

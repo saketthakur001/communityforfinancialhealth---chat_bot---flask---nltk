@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Chatbot Web App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Add some style to the web page */
         body {
@@ -32,15 +34,15 @@
         }
 
         .chatbox::-webkit-scrollbar-track {
-            background: #f1f1f1; 
+            background: #f1f1f1;
         }
-          
+
         .chatbox::-webkit-scrollbar-thumb {
-            background: #888; 
+            background: #888;
         }
-          
+
         .chatbox::-webkit-scrollbar-thumb:hover {
-            background: #555; 
+            background: #555;
         }
 
         .message {
@@ -95,20 +97,25 @@
             background-color: #333333;
             color: #ffffff;
         }
-    </style>
 
-<head>
-    <title>Chatbot Web App</title>
+        #voice-icon {
+            cursor: pointer;
+            font-size: 24px;
+            color: #333333;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Chatbot Web App</h1>
         <div class="chatbox" id="chatbox">
-            
         </div>
         <div class="input-box">
-            <input type="text" id="user-input" placeholder="Type your message here...">
-            <button id="send-button">Send</button>
+            <input type="text" id="user-input" placeholder="Type your message here..." onkeypress="onKeyPress(event)">
+            <button id="send-button" onclick="send()">Send</button>
+            <div id="voice-icon">
+                <i class="fas fa-microphone"></i>
+            </div>
         </div>
     </div>
     <script>
@@ -137,10 +144,7 @@
                     chatbotResponseElement.className = "message";
                     chatbotResponseElement.innerHTML = "<p>" + data.message + "</p>";
                     document.getElementById("chatbox").appendChild(chatbotResponseElement);
-
-                    // Check if the response contains a question and options
                     if (data.question && data.options) {
-                        // Display the question and options
                         var questionElement = document.createElement("p");
                         questionElement.textContent = data.question;
                         document.getElementById("chatbox").appendChild(questionElement);
@@ -159,8 +163,58 @@
             }
         }
 
-        // Attach the send function to the button click event
-        document.getElementById("send-button").addEventListener("click", send);
+        // Function to start voice recognition
+        function startVoiceRecognition() {
+            var recognition = new webkitSpeechRecognition();
+
+            recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript;
+                document.getElementById("user-input").value = transcript;
+                sendVoiceMessage(transcript);
+            };
+
+            recognition.start();
+        }
+
+        // Function to send voice input to the server
+        function sendVoiceMessage(voiceMessage) {
+            fetch('/chatbot', {
+                method: 'POST',
+                body: new URLSearchParams({ 'message': '__VOICE__' + voiceMessage }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                var chatbotResponseElement = document.createElement("div");
+                chatbotResponseElement.className = "message";
+                chatbotResponseElement.innerHTML = "<p>" + data.message + "</p>";
+                document.getElementById("chatbox").appendChild(chatbotResponseElement);
+                if (data.question && data.options) {
+                    var questionElement = document.createElement("p");
+                    questionElement.textContent = data.question;
+                    document.getElementById("chatbox").appendChild(questionElement);
+
+                    for (var i = 0; i < data.options.length; i++) {
+                        var optionElement = document.createElement("p");
+                        optionElement.textContent = data.options[i];
+                        document.getElementById("chatbox").appendChild(optionElement);
+                    }
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Attach voice recognition to the voice icon
+        document.getElementById("voice-icon").addEventListener("click", startVoiceRecognition);
+
+        // Function to handle Enter key press
+        function onKeyPress(event) {
+            if (event.key === "Enter") {
+                send();
+            }
+        }
     </script>
 </body>
 </html>

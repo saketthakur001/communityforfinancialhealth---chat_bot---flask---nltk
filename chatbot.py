@@ -8,7 +8,6 @@ nlp = spacy.load("en_core_web_lg")
 def lemmatize(sentence):
     # string to a spacy document
     doc = nlp(sentence)
-
     return " ".join([token.lemma_ for token in doc])
 
 #return similarity score
@@ -16,7 +15,6 @@ def compare(sent1, sent2):
     # convert to spacy docs
     doc1 = nlp(sent1)
     doc2 = nlp(sent2)
-
     return doc1.similarity(doc2)
 
 # patterns = {
@@ -147,7 +145,6 @@ def get_the_question(question_number):
 def get_response(user_input):
     scores = []
     responses = []
-
     # Loop through the patterns
     for pattern in patterns:
         # lemmatize the pattern and the user_input
@@ -199,4 +196,3 @@ def get_response(user_input):
 
 # survay = survey_time(3, '1')
 # print(survay)
-  

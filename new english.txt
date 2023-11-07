@@ -14,13 +14,12 @@ Other
 //-3. In the past 12 months how often were you able to save part of your income?
 
 
-Daily
-Weekly
-Monthly
-Bi-Annually
-Annually
-Not able to save at all
-
+Daily -=//=- 100
+Weekly -=//=- 80
+Monthly -=//=- 60
+Bi-Annually -=//=- 40
+Annually -=//=- 20
+Not able to save at all -=//=- 0
 
 
 

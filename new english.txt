@@ -4,127 +4,101 @@ user_input_required
 
 //-2. Mention Your Gender
 
-
 Male
 Female
 Other
 
-
-
 //-3. In the past 12 months how often were you able to save part of your income?
 
-
-Daily -=//=- 100
-Weekly -=//=- 80
-Monthly -=//=- 60
-Bi-Annually -=//=- 40
-Annually -=//=- 20
-Not able to save at all -=//=- 0
-
+Daily  -=//=- 100 
+Weekly  -=//=- 80
+Monthly  -=//=- 60
+Bi-Annually  -=//=- 40
+Annually  -=//=- 20
+Not able to save at all  -=//=- 0
 
 
 //-4. In the past 12 months how much of your total income were you able to save?
 
-
-Much more than half my income
-Little more than half my income
-About half of my income
-Little less than half my income
-Much less than half my income
-Not all to save at all
-
-
+Much more than half my income  -=//=- 100
+Little more than half my income  -=//=- 80
+About half of my income  -=//=- 60
+Little less than half my income  -=//=- 40
+Much less than half my income  -=//=- 20
+Not all to save at all  -=//=- 0
 
 
 //-5. Which of the following statements best describes your total savings compared to your total spending in the past 12 months?
 
-
-Saving was much more than spending
-Saving was a little more than spending
-Saving was about equal to spending
-Saving was a little less than spending
-Saving was much less than spending
-No saving at all
+Saving was much more than spending -=//=- 100
+Saving was a little more than spending -=//=- 80
+Saving was about equal to spending -=//=- 60
+Saving was a little less than spending -=//=- 40
+Saving was much less than spending -=//=- 20
+No saving at all -=//=- 0
 
 
 
 //-6. Which of the following statements best describes your total spending compared to your total income in the past 12 months?
 
-
-Spending was much less than income
-Spending was a little less than income
-Spending was little more than income
-Spending was much more than income
-Spending about equal to income
-
-
+Spending was much less than income  -=//=- 100
+Spending was a little less than income  -=//=- 75
+Spending was little more than income -=//=- 50
+Spending was much more than income -=//=- 25
+Spending about equal to income -=//=- 0
 
 
 //-7. Which of the following statements best describes how you were able to pay your bills (rent, utilities, education, etc) over the last 12 months?
 
-
-Paid all bills on time
-Paid most of our bills on time
-Paid some of our bills on time
-Paid very few bills on time
-Barely paid any bill on time
-
-
+Paid all bills on time -=//=- 100
+Paid most of our bills on time -=//=- 75
+Paid some of our bills on time -=//=- 50
+Paid very few bills on time -=//=- 25
+Barely paid any bill on time -=//=- 0
 
 
 //-8. Which of the following statements describe your expenditure pattern in purchasing essential and non-essential commodities?
 
-
-Expenditure on essential goods is much higher than that on non-essential goods
-Expenditure on essential goods is slightly higher than that on non-essential good
-Expenditure on essential goods is equal to that on non-essential goods
-Expenditure on essential goods is slightly lower than that on non-essential goods
-Expenditure on essential goods is much lower than that on non-essential goods
-
-
+Expenditure on essential goods is much higher than that on non-essential goods  -=//=- 100
+Expenditure on essential goods is slightly higher than that on non-essential good  -=//=- 75
+Expenditure on essential goods is equal to that on non-essential goods  -=//=- 50
+Expenditure on essential goods is slightly lower than that on non-essential goods  -=//=- 25
+Expenditure on essential goods is much lower than that on non-essential goods  -=//=- 0
 
 
 //-9. How easy or difficult is it for you to raise a loan from a formal financial institution?
 
-
-Very Easy
-Moderately Easy
-Neutral
-Moderately Difficult
-Very Difficult
-
-
-
+Very Easy -=//=- 100
+Moderately Easy -=//=- 75
+Neutral -=//=- 50
+Moderately Difficult -=//=- 25
+Very Difficult -=//=- 0
 
 //-10. In the past 12 months how frequently did you have to borrow money from a financial institution or family?
 
-
-once a year
-Once in 6 months
-Once in 3 months
-Every month
-Never
+Never -=//=- 100
+once a year  -=//=- 75
+Once in 6 months  -=//=- 50
+Once in 3 months  -=//=- 25
+Every month  -=//=- 0
 
 
 //-11. Considering the amount bororwed over the last 12 months, how frequently could you repay the EMIs?
 
-
-Paid all EMIs on time
-Paid most EMIs on time
-Paid some EMIs on time
-Barely paid any EMIs on time
-Never had to pay EMI since I never borrowed money
-
+Paid all EMIs on time -=//=- 100
+Paid most EMIs on time -=//=- 75
+Paid some EMIs on time -=//=- 50
+Barely paid any EMIs on time -=//=- 25
+Never had to pay EMI since I never borrowed money -=//=- 0
 
 
 //-12. If you lose employment, how many days can you sustain with the money you have saved?
 
-
-More than a year
-6 months - 1 year
-2-6 months
-One month
-Less than a week
+More than a year -=//=- 100
+6 months - 1 year -=//=- 75
+2-6 months -=//=- 50
+One month -=//=- 25
+Less than a week -=//=- 0
 
 
 
@@ -132,11 +106,11 @@ Less than a week
 //-13. How easy or difficult will it be for you to raise money in case of an emergency?
 
 
-Very Easy
-Moderately Easy
-Neutral
-Moderately Difficult
-Very Difficult
+Very Easy -=//=- 100
+Moderately Easy -=//=- 75
+Neutral -=//=- 50
+Moderately Difficult -=//=- 25
+Very Difficult -=//=- 0
 
 
 
@@ -144,43 +118,34 @@ Very Difficult
 //-14. How frequently have you invested in insurance policies or long-term saving schemes in the past 12 months (all kinds of insurance like- health and non-health/life and non-life)?
 
 
-Once a year
-Once in 6 months
-Once in 3 months
-Every month
-Never
+Once a year -=//=- 100
+Once in 6 months -=//=- 75
+Once in 3 months -=//=- 50
+Every month -=//=- 25
+Never -=//=- 0
 
 
 
 
-//-15.What best describes your financial decision-making ability?
+//-15.What best describes your financial decision making ability?
 
-
-I don't consult others, I am fully confident to take decisions instantly">I don't consult others, I am fully confident to take decisions instantly
-I don't consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing">
-I don’t consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing 
-                     
-I make my financial decisions, but in consultation with others">I make my financial decisions, but in consultation with others
-I always need to consult others for guidance">I always need to consult others for guidance
+I don’t consult others, I am fully confident to take decisions instantly
+I don’t consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing
+I make my financial decisions, but in consultation with others
+I always need to consult others for guidance
 I don't make financial decisions (someone else makes the decision)
+
 
 
 
 
 //-16.While deciding on investing in an asset (house/land), which of the statements best describe you?
 
-
-I am fully aware of these assets and make all decisions independently">I am fully aware of these assets and make all decisions independently
-I consult with a financial expert before making any decisions regarding investing in these assets">
-                        I consult with a financial expert before making any decisions regarding investing in these assets 
-                     
+I am fully aware of these assets and make all decisions independently
+I consult with a financial expert before making any decisions regarding investing in these assets
 I make decisions regarding investing in these assets in consultation with friends and family
 I don't make these decisions. I rely on financial experts to make these decisions for me
-I don't make these decisions. I rely on friends and family to make these decisions for me">
-                        I don't make these decisions. I rely on friends and family to make these decisions for me
-                     
-
-
+I don't make these decisions. I rely on friends and family to make these decisions for me
 
 
 //-17.While deciding on investment in an instrument(mutal funs/FD/RD), which of the statements would best describe you?

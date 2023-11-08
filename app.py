@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from chatbot import * # Import the chatbot.py file that contains the functions
-
+from chatbot import * 
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 # from icecream import ic
 
@@ -14,12 +14,18 @@ class UserResponse(db.Model):
     questionNo = db.Column(db.Integer, nullable=False)
     question = db.Column(db.String(250), nullable=False)
     options = db.Column(db.String(250), nullable=False)
-    user_response = db.Column(db.String, nullable=False)
+    # user_response = db.Column(db.String, nullable=False)
     # q1 = db.Column(db.Integer, nullable=False)
     # q2 = db.Column(db.Integer, nullable=False)
     score = db.Column(db.Integer, nullable=True)
     # for i in range(1, 38):
     #     locals()[f'q{i}'] = db.Column(db.Integer, nullable=False)
+
+class Users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), nullable=False)
+    phoneNo = db.Column(db.String(10), nullable=False)
+    date_registered = db.Column(db.DateTime, nullable=False)
 
 with app.app_context():
     db.create_all()
@@ -35,12 +41,8 @@ prevous_selection = ""
 user_input = ""
 chat_mode = True
 user_wants_to_do_the_survey = True
-
 question = questions[chat_no - 1]
 the_question = get_options(question)[0]
-
-
-
 
 user_responses = []
 
@@ -120,7 +122,7 @@ def chatbot():
 
         if len(selected_option.split('-=//=-')) == 2:
             final_selection = selected_option.split('-=//=-')[1]
-        
+
         else: final_selection = None
         list_of_options, the_question = get_the_question(chat_no-1)
 
@@ -129,6 +131,7 @@ def chatbot():
 
         db.session.add(response_entry)
         db.session.commit()
+
         print('2-2-'*100)
         for i in list_of_options:
                 print(i)
@@ -151,5 +154,4 @@ def chatbot():
                 print(i)
     return jsonify(response_data)
     # return jsonify({'message': response}) # Return the response as a JSON object
-
 app.run(debug=True)

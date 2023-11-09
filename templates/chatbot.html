@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Chatbot Web App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -75,7 +76,8 @@
         }
 
         .chatbot p {
-            background-color: #b3d4fc; /* Chatbot response background color */
+            background-color: #b3d4fc;
+            /* Chatbot response background color */
         }
 
         .input-box {
@@ -109,11 +111,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Chatbot Web App</h1>
-        <div class="chatbox" id="chatbox">
-        </div>
+        <div class="chatbox" id="chatbox"></div>
         <div class="input-box">
             <input type="text" id="user-input" placeholder="Type your message here..." onkeypress="onKeyPress(event)">
             <button id="send-button" onclick="send()">Send</button>
@@ -146,31 +148,27 @@
         // Function to send user message to the server
         function sendUserMessageToServer(message) {
             fetch('/chatbot', {
-                method: 'POST',
-                body: new URLSearchParams({ 'message': message }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Append the chatbot's response to the chatbox
-                appendChatbotResponse(data.message);
-                if (data.question && data.options) {
-                    var questionElement = document.createElement("p");
-                    questionElement.textContent = data.question;
-                    document.getElementById("chatbox").appendChild(questionElement);
-
-                    for (var i = 0; i < data.options.length; i++) {
-                        var optionElement = document.createElement("p");
-                        optionElement.textContent = data.options[i];
-                        document.getElementById("chatbox").appendChild(optionElement);
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'message': message
+                    }),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     }
-                }
-                // Speak chatbot's response
-                speak(data.message);
-            })
-            .catch(error => console.error('Error:', error));
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Append the chatbot's response to the chatbox
+                    appendChatbotResponse(data.message);
+                    if (data.question && data.options) {
+                        speak(data.message);
+                        speakOptions(data.question, data.options);
+                    } else {
+                        // Speak chatbot's response
+                        speak(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         }
 
         // Function to append a chatbot response to the chatbox
@@ -200,31 +198,27 @@
         // Function to send voice input to the server
         function sendVoiceMessage(voiceMessage) {
             fetch('/chatbot', {
-                method: 'POST',
-                body: new URLSearchParams({ 'message': '__VOICE__' + voiceMessage }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Append the chatbot's response to the chatbox
-                appendChatbotResponse(data.message);
-                if (data.question && data.options) {
-                    var questionElement = document.createElement("p");
-                    questionElement.textContent = data.question;
-                    document.getElementById("chatbox").appendChild(questionElement);
-
-                    for (var i = 0; i < data.options.length; i++) {
-                        var optionElement = document.createElement("p");
-                        optionElement.textContent = data.options[i];
-                        document.getElementById("chatbox").appendChild(optionElement);
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'message': '__VOICE__' + voiceMessage
+                    }),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     }
-                }
-                // Speak chatbot's response
-                speak(data.message);
-            })
-            .catch(error => console.error('Error:', error));
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Append the chatbot's response to the chatbox
+                    appendChatbotResponse(data.message);
+                    if (data.question && data.options) {
+                        speak(data.message);
+                        speakOptions(data.question, data.options);
+                    } else {
+                        // Speak chatbot's response
+                        speak(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         }
 
         // Function to speak the given text
@@ -232,6 +226,12 @@
             var synth = window.speechSynthesis;
             var utterance = new SpeechSynthesisUtterance(text);
             synth.speak(utterance);
+        }
+
+        // Function to speak the given question and options
+        function speakOptions(question, options) {
+            speak(question);
+            options.forEach(option => speak(option));
         }
 
         // Attach voice recognition to the voice icon
@@ -245,4 +245,5 @@
         }
     </script>
 </body>
+
 </html>

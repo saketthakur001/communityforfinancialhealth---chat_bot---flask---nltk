@@ -33,9 +33,10 @@ with app.app_context():
 @app.route('/')
 def index():
     return render_template('chatbot.html') # Render the chatbot.html template
-global chat_no, prevous_selection, first_chat, the_question, user_input, chat_mode, user_wants_to_do_the_survey
+global chat_no, prevous_selection, first_chat, the_question, user_input, chat_mode, user_wants_to_do_the_survey, score
 
 chat_no = 1
+temp_chat_no = None
 first_chat = False
 prevous_selection = ""
 user_input = ""
@@ -44,14 +45,19 @@ user_wants_to_do_the_survey = True
 question = questions[chat_no - 1]
 the_question = get_options(question)[0]
 
+
+score = []
+
 user_responses = []
 
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
     global chat_no, prevous_selection, first_chat, the_question, user_input, chat_mode, user_wants_to_do_the_survey
     # chat_mode = True
-    message = request.form['message'] # Get the message from the form
-    print(message)
+    message = request.form['message'].split('__VOICE__')[-1]
+    # message
+
+    print(message, 'message!!'*10)
     selected_option, list_of_options, user_input, the_question, user_text_input_required = survey_time(chat_no-1, message)
     # if first_chat:
     #     # response_data['message'] = ""
@@ -84,16 +90,23 @@ def chatbot():
             chat_no += 1
             return jsonify(response_data)
         if user_wants_to_do_the_survey:
-            the_question = the_question+'     Do you wanna start a survey?'
+            the_question = the_question+'\n   Do you wanna start a survey?'
+        options = [i.split('-=//=-')[0] for i in list_of_options]
+        print(options)
+        try:
+            if options[0]=='user_input_required':
+                options = ' '
+        except:
+            options = ''
         response_data = {
             'message':the_question,
             # 'message': 
             # 'question': the_question,
             # also spliting the option with the score
-            'options' : [i.split('-=//=-')[0] for i in list_of_options],
+            'options' : options,
             'user_input' : user_input,
         }
-        print('1-1-'*100)
+        print('1-1-'*10)
 
         for i in list_of_options:
                 print(i)
@@ -102,7 +115,7 @@ def chatbot():
         return jsonify(response_data)
 
     # Return the selected option, the list of options, the user input, and the actual questionselected_option, list_of_options, user_input, the_question = survey_time(chat_no-1, message)
-    print('user text input required is ', user_text_input_required, 'and the message is ','attention required'*100)
+    print('user text input required is ', user_text_input_required, 'and the message is ','attention required'*10)
 
     if user_text_input_required:
         selected_option = message
@@ -111,17 +124,23 @@ def chatbot():
 
     if selected_option:
         list_of_options, the_question = get_the_question(chat_no)
-
+        options = [i.split('-=//=-')[0] for i in list_of_options]
+        try:
+            if options[0]=='user_input_required':
+                options = ' '
+        except:
+            options = ''
         response_data = {
             'message':'You have selected "'+selected_option.split('-=//=-')[0]+'" as your previous response.',
             # 'message': 
             'question': the_question,
             # also spliting the option with the score
-            'options' : [i.split('-=//=-')[0] for i in list_of_options],
+            'options' : options,
         }
 
         if len(selected_option.split('-=//=-')) == 2:
             final_selection = selected_option.split('-=//=-')[1]
+            score.append(int(final_selection))
 
         else: final_selection = None
         list_of_options, the_question = get_the_question(chat_no-1)
@@ -132,7 +151,7 @@ def chatbot():
         db.session.add(response_entry)
         db.session.commit()
 
-        print('2-2-'*100)
+        print('2-2-'*10)
         for i in list_of_options:
                 print(i)
         user_input = message
@@ -142,16 +161,23 @@ def chatbot():
         chat_no += 1
 
     else:
+        options = [i.split('-=//=-')[0] for i in list_of_options]
+        try:
+            if options[0]=='user_input_required':
+                options = ' '
+        except:
+            options = ' '
         response_data = {
             'message':'Please try again with the correct option',
             # 'message': 
             'question': the_question,
             # also spliting the option with the score
-            'options' : [i.split('-=//=-')[0] for i in list_of_options],
+            'options' : options,
         }
-        print('3-3-'*100)
+        print('3-3-'*10)
         for i in list_of_options:
                 print(i)
+    print(sum(score)/18, 'score'*10)
     return jsonify(response_data)
     # return jsonify({'message': response}) # Return the response as a JSON object
 app.run(debug=True)

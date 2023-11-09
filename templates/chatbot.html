@@ -55,7 +55,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            margin right: 10px;
+            margin-right: 10px;
         }
 
         .message p {
@@ -72,6 +72,10 @@
 
         .user p {
             background-color: #e6e6e6;
+        }
+
+        .chatbot p {
+            background-color: #b3d4fc; /* Chatbot response background color */
         }
 
         .input-box {
@@ -124,43 +128,57 @@
             var userMessage = document.getElementById("user-input").value;
             if (userMessage.trim() !== "") {
                 // Append user message to the chatbox
-                var userMessageElement = document.createElement("div");
-                userMessageElement.className = "message user";
-                userMessageElement.innerHTML = "<p>" + userMessage + "</p>";
-                document.getElementById("chatbox").appendChild(userMessageElement);
-
-                // Send the user message to the server using fetch
-                fetch('/chatbot', {
-                    method: 'POST',
-                    body: new URLSearchParams({ 'message': userMessage }),
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Append the chatbot's response to the chatbox
-                    var chatbotResponseElement = document.createElement("div");
-                    chatbotResponseElement.className = "message";
-                    chatbotResponseElement.innerHTML = "<p>" + data.message + "</p>";
-                    document.getElementById("chatbox").appendChild(chatbotResponseElement);
-                    if (data.question && data.options) {
-                        var questionElement = document.createElement("p");
-                        questionElement.textContent = data.question;
-                        document.getElementById("chatbox").appendChild(questionElement);
-
-                        for (var i = 0; i < data.options.length; i++) {
-                            var optionElement = document.createElement("p");
-                            optionElement.textContent = data.options[i];
-                            document.getElementById("chatbox").appendChild(optionElement);
-                        }
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-
+                appendUserMessage(userMessage);
+                sendUserMessageToServer(userMessage);
                 // Clear the input field
                 document.getElementById("user-input").value = "";
             }
+        }
+
+        // Function to append a user message to the chatbox
+        function appendUserMessage(message) {
+            var userMessageElement = document.createElement("div");
+            userMessageElement.className = "message user";
+            userMessageElement.innerHTML = "<p>" + message + "</p>";
+            document.getElementById("chatbox").appendChild(userMessageElement);
+        }
+
+        // Function to send user message to the server
+        function sendUserMessageToServer(message) {
+            fetch('/chatbot', {
+                method: 'POST',
+                body: new URLSearchParams({ 'message': message }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Append the chatbot's response to the chatbox
+                appendChatbotResponse(data.message);
+                if (data.question && data.options) {
+                    var questionElement = document.createElement("p");
+                    questionElement.textContent = data.question;
+                    document.getElementById("chatbox").appendChild(questionElement);
+
+                    for (var i = 0; i < data.options.length; i++) {
+                        var optionElement = document.createElement("p");
+                        optionElement.textContent = data.options[i];
+                        document.getElementById("chatbox").appendChild(optionElement);
+                    }
+                }
+                // Speak chatbot's response
+                speak(data.message);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Function to append a chatbot response to the chatbox
+        function appendChatbotResponse(message) {
+            var chatbotResponseElement = document.createElement("div");
+            chatbotResponseElement.className = "message chatbot";
+            chatbotResponseElement.innerHTML = "<p>" + message + "</p>";
+            document.getElementById("chatbox").appendChild(chatbotResponseElement);
         }
 
         // Function to start voice recognition
@@ -170,11 +188,10 @@
             recognition.onresult = function(event) {
                 var transcript = event.results[0][0].transcript;
                 // Append voice input to the chatbox as a user message
-                var voiceMessageElement = document.createElement("div");
-                voiceMessageElement.className = "message user";
-                voiceMessageElement.innerHTML = "<p>" + transcript + "</p>";
-                document.getElementById("chatbox").appendChild(voiceMessageElement);
+                appendUserMessage(transcript);
                 sendVoiceMessage(transcript);
+                // Clear the input field
+                document.getElementById("user-input").value = "";
             };
 
             recognition.start();
@@ -191,10 +208,8 @@
             })
             .then(response => response.json())
             .then(data => {
-                var chatbotResponseElement = document.createElement("div");
-                chatbotResponseElement.className = "message";
-                chatbotResponseElement.innerHTML = "<p>" + data.message + "</p>";
-                document.getElementById("chatbox").appendChild(chatbotResponseElement);
+                // Append the chatbot's response to the chatbox
+                appendChatbotResponse(data.message);
                 if (data.question && data.options) {
                     var questionElement = document.createElement("p");
                     questionElement.textContent = data.question;
@@ -206,8 +221,17 @@
                         document.getElementById("chatbox").appendChild(optionElement);
                     }
                 }
+                // Speak chatbot's response
+                speak(data.message);
             })
             .catch(error => console.error('Error:', error));
+        }
+
+        // Function to speak the given text
+        function speak(text) {
+            var synth = window.speechSynthesis;
+            var utterance = new SpeechSynthesisUtterance(text);
+            synth.speak(utterance);
         }
 
         // Attach voice recognition to the voice icon
@@ -220,3 +244,5 @@
             }
         }
     </script>
+</body>
+</html>

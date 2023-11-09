@@ -118,22 +118,20 @@ Very Difficult -=//=- 0
 //-14. How frequently have you invested in insurance policies or long-term saving schemes in the past 12 months (all kinds of insurance like- health and non-health/life and non-life)?
 
 
-Once a year -=//=- 100
-Once in 6 months -=//=- 75
-Once in 3 months -=//=- 50
-Every month -=//=- 25
-Never -=//=- 0
-
-
+Once a year -=//=- 25
+Once in 6 months -=//=- 50
+Once in 3 months -=//=- 75
+Every month -=//=- 100
+Never -=//=- 0 
 
 
 //-15.What best describes your financial decision making ability?
 
-I don’t consult others, I am fully confident to take decisions instantly
-I don’t consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing
-I make my financial decisions, but in consultation with others
-I always need to consult others for guidance
-I don't make financial decisions (someone else makes the decision)
+I don’t consult others, I am fully confident to take decisions instantly-=//=- 100
+I don’t consult others, I am fully confident to take decisions but I delay my decisions to do some research/think about it/ to observe what others are doing-=//=- 75
+I make my financial decisions, but in consultation with others-=//=- 50
+I always need to consult others for guidance-=//=- 25
+I don't make financial decisions (someone else makes the decision)-=//=- 0
 
 
 
@@ -141,43 +139,44 @@ I don't make financial decisions (someone else makes the decision)
 
 //-16.While deciding on investing in an asset (house/land), which of the statements best describe you?
 
-I am fully aware of these assets and make all decisions independently
-I consult with a financial expert before making any decisions regarding investing in these assets
-I make decisions regarding investing in these assets in consultation with friends and family
-I don't make these decisions. I rely on financial experts to make these decisions for me
-I don't make these decisions. I rely on friends and family to make these decisions for me
+I am fully aware of these assets and make all decisions independently -=//=- 100
+I consult with a financial expert before making any decisions regarding investing in these assets -=//=- 75
+I make decisions regarding investing in these assets in consultation with friends and family -=//=- 50
+I don't make these decisions. I rely on financial experts to make these decisions for me -=//=- 25
+I don't make these decisions. I rely on friends and family to make these decisions for me -=//=- 0
 
 
 //-17.While deciding on investment in an instrument(mutal funs/FD/RD), which of the statements would best describe you?
 
 
-I am fully aware of these instruments and make all decisions independently
-I consult with a financial expert before making any decisions regarding investing in these instruments 
-I make decisions regarding investing in these instruments in consultation with friends and family
-I don't make these decisions. I rely on financial experts to make these decisions to make these decision independently
-I don't make these decisions. I rely on friends and family to make these decisions for me
+I am fully aware of these instruments and make all decisions independently -=//=- 100
+I consult with a financial expert before making any decisions regarding investing in these instruments  -=//=- 75
+I make decisions regarding investing in these instruments in consultation with friends and family -=//=- 50
+I don't make these decisions. I rely on financial experts to make these decisions to make these decision independently -=//=- 25
+I don't make these decisions. I rely on friends and family to make these decisions for me -=//=- 0
 
-
+-=//=- 100
+-=//=- 75
+-=//=- 50
+-=//=- 25
+-=//=- 0
 
 //-18. Which of the following best describes your current approach to budgeting?
 
-
-I have a formal budget that's documented (e.g. spreadsheet, book or online tool) that calculates my outgoing expenses and the amount of money I need to allocate each week or month
-I have a ‘mental’ budget – no documentation or spreadsheets, but I still keep track of my finances and spending
-I keep a mental budget but do not track of all my finances and spending, only the major expenses
-I don't work a budget at all and spend what I can afford at that time I don't work to a budget at all
-
-
+I have a formal budget that's documented (e.g. spreadsheet, book or online tool) that calculates my outgoing expenses and the amount of money I need to allocate each week or month -=//=- 75
+I have a ‘mental’ budget – no documentation or spreadsheets, but I still keep track of my finances and spending -=//=- 50
+I keep a mental budget but do not track of all my finances and spending, only the major expenses -=//=- 25
+I don't work a budget at all and spend what I can afford at that time I don't work to a budget at all -=//=- 0
 
 
 //-19. Which of the following statements best describes you in relation to your finances?
 
 
-I am actively planning for my financial future
-I'm primarily focused on my finances today and have started taking active steps towards planning my future finances
-I’m starting to think about planning for my financial future but have not yet taken active steps towards this
-I’m primarily focused on my finances today and haven’t put much thought into planning for my financial future
-I have put no thought into my planning for my financial future
+I am actively planning for my financial future -=//=- 100
+I'm primarily focused on my finances today and have started taking active steps towards planning my future finances -=//=- 75
+I’m starting to think about planning for my financial future but have not yet taken active steps towards this -=//=- 50
+I’m primarily focused on my finances today and haven’t put much thought into planning for my financial future -=//=- 25
+I have put no thought into my planning for my financial future -=//=- 0
 
 
 
@@ -185,11 +184,11 @@ I have put no thought into my planning for my financial future
 //-20.In the past 12 months how often have invested to achieve a short term financial goal(FDs, RDs,Mutual funds, stocks, etc)
 
 
-very often
-Often
-Sometimes
-Not Often
-Never
+very often -=//=- 100
+Often -=//=- 75
+Sometimes -=//=- 50
+Not Often -=//=- 25
+Never -=//=- 0
 
 
 

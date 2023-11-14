@@ -57,7 +57,10 @@ def chatbot():
     dropdown_value = request.form.get('dropdownValue')
     if dropdown_value:
         chat_no = int(dropdown_value)
-        temp_chat_on = chat_no
+        temp_chat_no = True                 
+    else:
+        temp_chat_no = False
+
     # message
     print(dropdown_value, 'dropdown value'*10)
     print(message, 'message!!'*10)
@@ -197,5 +200,4 @@ def chatbot():
     # return jsonify({'message': response}) # Return the response as a JSON object
 app.run(debug=True)
 
-
-# if __name__ == ""
+# if __name__ == ""a

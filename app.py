@@ -36,7 +36,7 @@ def index():
 global chat_no, prevous_selection, first_chat, the_question, user_input, chat_mode, user_wants_to_do_the_survey, score
 
 chat_no = 1
-temp_chat_no = None
+temp_chat_on = None
 first_chat = False
 prevous_selection = ""
 user_input = ""
@@ -45,9 +45,7 @@ user_wants_to_do_the_survey = True
 question = questions[chat_no - 1]
 the_question = get_options(question)[0]
 
-
 score = []
-
 user_responses = []
 
 @app.route('/chatbot', methods=['POST'])
@@ -55,8 +53,13 @@ def chatbot():
     global chat_no, prevous_selection, first_chat, the_question, user_input, chat_mode, user_wants_to_do_the_survey
     # chat_mode = True
     message = request.form['message'].split('__VOICE__')[-1]
+    user_message = request.form.get('message')
+    dropdown_value = request.form.get('dropdownValue')
+    if dropdown_value:
+        chat_no = int(dropdown_value)
+        temp_chat_on = chat_no
     # message
-
+    print(dropdown_value, 'dropdown value'*10)
     print(message, 'message!!'*10)
     selected_option, list_of_options, user_input, the_question, user_text_input_required = survey_time(chat_no-1, message)
     # if first_chat:
@@ -130,8 +133,20 @@ def chatbot():
                 options = ' '
         except:
             options = ''
+        msg = 'You have selected "'+selected_option.split('-=//=-')[0]+'" as your previous response.'
+
+        if chat_no == 18:
+            print(round(sum(score)/18), 'error!'*100)
+            if round(sum(score)/18) < 39:
+                status = 'you are financially vulnerable.'
+            elif round(sum(score)/18) < 80:
+                status = 'you are financially coping.'
+            elif round(sum(score)/18) < 100:
+                status = 'you are financially healthy'
+            msg = 'You have selected "'+selected_option.split('-=//=-')[0]+f'" as your previous response. you are {status}'
+
         response_data = {
-            'message':'You have selected "'+selected_option.split('-=//=-')[0]+'" as your previous response.',
+            'message':msg,
             # 'message': 
             'question': the_question,
             # also spliting the option with the score
@@ -181,3 +196,6 @@ def chatbot():
     return jsonify(response_data)
     # return jsonify({'message': response}) # Return the response as a JSON object
 app.run(debug=True)
+
+
+# if __name__ == ""
